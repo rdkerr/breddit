@@ -1,6 +1,6 @@
 # breddit
 
-> A Social Media Bread Site
+> A bread-focused social media site
 
 ## Build Setup
 
