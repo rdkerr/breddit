@@ -40,7 +40,7 @@ export default {
 }
 .text {
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 525;
   letter-spacing: -1px;
   font-family: IBMPlexSans, Arial, sans-serif;
   margin: 12px 20px 8px 0;
