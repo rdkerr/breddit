@@ -1,6 +1,6 @@
 # breddit
 
-> A bread-focused social media site
+> A bread focused Vue.js social media site
 
 ## Build Setup
 
