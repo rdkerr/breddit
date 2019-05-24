@@ -40,6 +40,7 @@ export default {
 <style>
 body {
   margin: 0;
+  min-width: 320px;
 }
 
 #app {
