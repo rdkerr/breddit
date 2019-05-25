@@ -38,6 +38,8 @@ export default {
 </script>
 
 <style>
+@import "https://use.fontawesome.com/releases/v5.7.0/css/all.css";
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
 body {
   margin: 0;
   min-width: 320px;

@@ -6,19 +6,25 @@
         <p class="text">bredd<span class="i">i</span>t</p>
       </div>
     </div>
+    <Dropdown></Dropdown>
   </div>
 </template>
 
 <script>
+import Dropdown from './Dropdown'
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  components: {
+    Dropdown
+  }
 }
 </script>
 
 <style scoped>
-@import "https://use.fontawesome.com/releases/v5.7.0/css/all.css";
 .home {
   display: inline-block;
+  float: left;
+  cursor: pointer;
 }
 #navbar {
   height: 48px;
