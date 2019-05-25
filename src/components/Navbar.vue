@@ -22,7 +22,6 @@ export default {
 
 <style scoped>
 .home {
-  display: inline-block;
   float: left;
   cursor: pointer;
 }
