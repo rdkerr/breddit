@@ -46,6 +46,7 @@ export default {
   height: 36px;
   margin: 7px 10px 0 0;
   cursor: pointer;
+  border: 1px solid white;
 }
 .nav-dropdown:hover {
   border-radius: 4px;
