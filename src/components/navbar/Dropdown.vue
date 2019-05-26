@@ -1,7 +1,7 @@
 <template>
   <div class="nav-dropdown">
     <div class="main-icon-container">
-      <i class="fa fa-rocket main-icon"></i>
+      <i class="fa fa-couch main-icon"></i>
     </div>
     <div class="text-container">
       <p class="text">Home</p>

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img src="../assets/breddit_logo.png" class="logo">
+    <img src="../../assets/breddit_logo.png" class="logo">
     <div class="logo-text">
       <p class="text">bredd<span class="i">i</span>t</p>
     </div>
