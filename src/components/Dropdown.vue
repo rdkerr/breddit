@@ -22,28 +22,29 @@ export default {
 .main-icon-container {
   float: left;
   width: 40px;
-  height: 34px;
+  height: 36px;
 }
 .sort {
   margin: 5px 10px 0 0;
 }
 .sort-container {
   width: 56px;
-  height: 34px;
+  height: 36px;
   float: left;
   text-align: right;
+  display: none;
 }
 .text-container {
   float: left;
   justify-content: center;
   width: 172px;
-  height: 34px;
+  height: 36px;
   display: none;
 }
 .nav-dropdown{
   float: left;
-  height: 34px;
-  margin: 7px 0;
+  height: 36px;
+  margin: 7px 10px 0 0;
   cursor: pointer;
 }
 .nav-dropdown:hover {
@@ -65,5 +66,9 @@ export default {
     display: block;
   }
 }
-
+@media screen and (min-width: 450px) {
+  .sort-container {
+    display: block;
+  }
+}
 </style>
