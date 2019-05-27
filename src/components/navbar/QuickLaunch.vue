@@ -1,16 +1,5 @@
 <template>
   <div>
-    <div class="launch">
-      <div class="icon-container">
-        <i class="fa fa-pepper-hot icon"></i>
-      </div>
-      <div class="icon-container">
-        <i class="fa fa-hamburger icon"></i>
-      </div>
-      <div class="icon-container">
-        <i class="fa fa-shopping-cart icon"></i>
-      </div>
-    </div>
     <div class="compose">
       <div class="icon-container">
         <i class="fa fa-envelope icon"></i>
@@ -20,6 +9,17 @@
       </div>
       <div class="icon-container">
         <i class="fa fa-scroll blue icon"></i>
+      </div>
+    </div>
+    <div class="launch">
+      <div class="icon-container">
+        <i class="fa fa-pepper-hot icon"></i>
+      </div>
+      <div class="icon-container">
+        <i class="fa fa-hamburger icon"></i>
+      </div>
+      <div class="icon-container">
+        <i class="fa fa-shopping-cart icon"></i>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@ export default {
 
 <style scoped>
 .launch {
-  float: left;
+  float: right;
   max-width: 112px;
   margin-top: 6px;
   border-right: 1px solid rgb(230, 230, 230);
@@ -41,7 +41,7 @@ export default {
   padding: 0 5px;
 }
 .compose {
-  float: left;
+  float: right;
   max-width: 112px;
   margin-top: 6px;
   display: none;

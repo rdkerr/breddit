@@ -3,6 +3,7 @@
     <Brand></Brand>
     <Dropdown></Dropdown>
     <Search></Search>
+    <Profile></Profile>
     <QuickLaunch></QuickLaunch>
   </div>
 </template>
@@ -12,6 +13,7 @@ import Dropdown from './Dropdown'
 import Brand from './Brand'
 import Search from './Search'
 import QuickLaunch from './QuickLaunch'
+import Profile from './Profile'
 
 export default {
   name: 'Navbar',
@@ -19,7 +21,8 @@ export default {
     Dropdown,
     Brand,
     Search,
-    QuickLaunch
+    QuickLaunch,
+    Profile
   }
 }
 </script>

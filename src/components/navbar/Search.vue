@@ -13,7 +13,6 @@ export default {
 
 <style scoped>
 .search {
-  width: 50%;
   float: left;
   background-color: red;
 }
