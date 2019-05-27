@@ -41,7 +41,7 @@ export default {
   margin: 5px 10px 0 0;
 }
 .sort-container {
-  width: 56px;
+  width: 26px;
   height: 36px;
   float: left;
   text-align: right;
