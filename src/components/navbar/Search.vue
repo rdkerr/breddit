@@ -13,18 +13,17 @@ export default {
 
 <style scoped>
 .search {
-  float: left;
+  float: right;
   background-color: red;
+  left: 200px;
 }
 input {
   border-radius: 4px;
-  width: 70%;
   border: 1px solid rgb(237, 239, 241);
   background-color: rgb(246, 247, 248);
   height: 24px;
   margin-top: 7px;
   padding-left: 35px;
-  padding-right: 16px;
 }
 input:focus {
   border: 1px solid #0079d3;

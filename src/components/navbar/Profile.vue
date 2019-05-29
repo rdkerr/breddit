@@ -75,7 +75,7 @@ export default {
   font-size: 22px;
   padding: 6px 0 6px 10px;
 }
-@media screen and (min-width: 996px) {
+@media screen and (min-width: 1200px) {
   .text-container {
     display: block;
   }

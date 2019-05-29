@@ -52,7 +52,7 @@
     "collectCoverageFrom": [
       "**/*.{js,vue}",
       "!**/node_modules/**",
-      "!webpack.config.js",
+      "!**/webpack.config.js",
       "!**/coverage/**"
     ]
   }

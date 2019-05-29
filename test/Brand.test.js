@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Brand from '../components/navbar/Brand.vue'
+import Brand from '../src/components/navbar/Brand.vue'
 
 describe('Brand', () => {
   const wrapper = mount(Brand)
@@ -9,5 +9,9 @@ describe('Brand', () => {
 
   test('renders correctly', () => {
     expect(wrapper.element).toMatchSnapshot()
+  })
+
+  test('should render content correctly', () => {
+    expect(wrapper.find('p').text()).toEqual('breddit')
   })
 })

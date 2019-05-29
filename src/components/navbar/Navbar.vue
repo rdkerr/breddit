@@ -2,9 +2,10 @@
   <div id="navbar">
     <Brand></Brand>
     <Dropdown></Dropdown>
-    <Search></Search>
+
     <Profile></Profile>
     <QuickLaunch></QuickLaunch>
+    <Search></Search>
   </div>
 </template>
 
