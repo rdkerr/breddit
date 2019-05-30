@@ -42,7 +42,6 @@ export default {
   display: none;
 }
 .nav-dropdown{
-  float: left;
   height: 36px;
   margin: 7px 10px 0 0;
   cursor: pointer;

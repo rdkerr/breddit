@@ -13,9 +13,8 @@ export default {
 
 <style scoped>
 .search {
-  float: right;
-  background-color: red;
-  left: 200px;
+  height: 38px;
+  flex-grow: 1;
 }
 input {
   border-radius: 4px;
@@ -24,6 +23,7 @@ input {
   height: 24px;
   margin-top: 7px;
   padding-left: 35px;
+  width: calc(100% - 35px);
 }
 input:focus {
   border: 1px solid #0079d3;
@@ -36,4 +36,5 @@ input:focus {
   color: rgb(135, 138, 140);
   font-size: 16px;
 }
+
 </style>

@@ -15,7 +15,6 @@ export default {
 
 <style scoped>
 .home {
-  float: left;
   cursor: pointer;
 }
 .logo {

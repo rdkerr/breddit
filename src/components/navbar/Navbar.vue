@@ -2,10 +2,10 @@
   <div id="navbar">
     <Brand></Brand>
     <Dropdown></Dropdown>
-
+    <Search></Search>
     <Profile></Profile>
     <QuickLaunch></QuickLaunch>
-    <Search></Search>
+
   </div>
 </template>
 
@@ -37,5 +37,7 @@ export default {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   align-items: center;
+  display: flex;
+  width: 100%;
 }
 </style>
