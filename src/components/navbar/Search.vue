@@ -32,9 +32,10 @@ input:focus {
 }
 .mag {
   position: relative;
-  left: -570px;
   color: rgb(135, 138, 140);
   font-size: 16px;
+  top: -23px;
+  left: 10px;
 }
 
 </style>

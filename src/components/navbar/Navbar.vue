@@ -3,9 +3,9 @@
     <Brand></Brand>
     <Dropdown></Dropdown>
     <Search></Search>
-    <Profile></Profile>
     <QuickLaunch></QuickLaunch>
-
+    <Compose></Compose>
+    <Profile></Profile>
   </div>
 </template>
 
@@ -14,6 +14,7 @@ import Dropdown from './Dropdown'
 import Brand from './Brand'
 import Search from './Search'
 import QuickLaunch from './QuickLaunch'
+import Compose from './Compose'
 import Profile from './Profile'
 
 export default {
@@ -23,6 +24,7 @@ export default {
     Brand,
     Search,
     QuickLaunch,
+    Compose,
     Profile
   }
 }
@@ -38,6 +40,6 @@ export default {
   border-bottom-width: 1px;
   align-items: center;
   display: flex;
-  width: 100%;
+
 }
 </style>

@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div class="launch">
+    <div class="compose">
       <div class="icon-container">
-        <i class="fa fa-pepper-hot icon"></i>
+        <i class="fa fa-envelope icon"></i>
       </div>
       <div class="icon-container">
-        <i class="fa fa-hamburger icon"></i>
+        <i class="fa fa-comment-dots icon"></i>
       </div>
       <div class="icon-container">
-        <i class="fa fa-shopping-cart icon"></i>
+        <i class="fa fa-scroll blue icon"></i>
       </div>
     </div>
   </div>
@@ -16,15 +16,14 @@
 
 <script>
 export default {
-  name: 'QuickLaunch'
+  name: 'Compose'
 }
 </script>
 
 <style scoped>
-.launch {
+.compose {
   max-width: 112px;
   margin-top: 6px;
-  border-right: 1px solid rgb(230, 230, 230);
   display: none;
   padding: 0 5px;
 }
@@ -43,8 +42,11 @@ export default {
 .icon-container:hover {
   background-color: rgba(26, 26, 27, 0.1);
 }
-@media screen and (min-width: 800px) {
-  .launch {
+.blue {
+  color: #0079d3;
+}
+@media screen and (min-width: 600px) {
+  .compose {
     display: block;
   }
 }
