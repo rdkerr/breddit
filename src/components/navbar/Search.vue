@@ -15,13 +15,14 @@ export default {
 .search {
   height: 38px;
   flex-grow: 1;
+  margin-right: 5px;
 }
 input {
   border-radius: 4px;
   border: 1px solid rgb(237, 239, 241);
   background-color: rgb(246, 247, 248);
-  height: 24px;
-  margin-top: 7px;
+  height: 32px;
+  margin-top: 0px;
   padding-left: 35px;
   width: calc(100% - 35px);
 }
@@ -34,7 +35,7 @@ input:focus {
   position: relative;
   color: rgb(135, 138, 140);
   font-size: 16px;
-  top: -23px;
+  top: -28px;
   left: 10px;
 }
 

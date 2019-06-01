@@ -1,11 +1,6 @@
 <template>
   <div>
     <Navbar></Navbar>
-    <div class="a">
-      <div class="b">A</div>
-      <div class="c">B</div>
-      <div class="d">C</div>
-    </div>
     <div id="app">
       <h1>{{ msg }}</h1>
       <img src="./assets/breddit_logo.png">
@@ -43,29 +38,6 @@ export default {
 </script>
 
 <style>
-.a {
-  height: 200px;
-  width: 100%;
-}
-.a > div {
-  float: left;
-  height: 100%;
-}
-.b {
-  width: 200px;
-  background-color: red;
-  float: left;
-}
-.c {
-  width: 100%;
-  background-color: blue;
-  float: left;
-}
-.d {
-  width: 200px;
-  background-color: green;
-  float: left;
-}
 @import "https://use.fontawesome.com/releases/v5.7.0/css/all.css";
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
 body {

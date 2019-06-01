@@ -57,7 +57,7 @@ export default {
 .user-dropdown{
   float: right;
   height: 36px;
-  margin: 7px 10px 0 0;
+  margin: 7px 20px 0 0;
   cursor: pointer;
   border: 1px solid white;
 }

@@ -2,10 +2,10 @@
   <div>
     <div class="compose">
       <div class="icon-container">
-        <i class="fa fa-envelope icon"></i>
+        <i class="fa fa-comment-dots icon"></i>
       </div>
       <div class="icon-container">
-        <i class="fa fa-comment-dots icon"></i>
+        <i class="fa fa-envelope icon"></i>
       </div>
       <div class="icon-container">
         <i class="fa fa-scroll blue icon"></i>
@@ -23,7 +23,6 @@ export default {
 <style scoped>
 .compose {
   max-width: 112px;
-  margin-top: 6px;
   display: none;
   padding: 0 5px;
 }

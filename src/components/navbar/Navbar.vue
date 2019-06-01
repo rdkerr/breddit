@@ -32,14 +32,15 @@ export default {
 
 <style scoped>
 #navbar {
+  top: 0;
   height: 48px;
-  padding-left: 20px;
-  padding-right: 20px;
+
   border-bottom-color: rgb(237, 239, 241);
   border-bottom-style: solid;
   border-bottom-width: 1px;
   align-items: center;
   display: flex;
-
+  width: 100%;
+  overflow: hidden;
 }
 </style>

@@ -16,6 +16,7 @@ export default {
 <style scoped>
 .home {
   cursor: pointer;
+  margin-left: 20px;
 }
 .logo {
   height: 32px;

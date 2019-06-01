@@ -23,7 +23,6 @@ export default {
 <style scoped>
 .launch {
   max-width: 112px;
-  margin-top: 6px;
   border-right: 1px solid rgb(230, 230, 230);
   display: none;
   padding: 0 5px;
