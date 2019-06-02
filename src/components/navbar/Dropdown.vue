@@ -10,7 +10,8 @@
       <i class="fa fa-sort-down sort"></i>
     </div>
     <div v-if="open" class="content">
-
+      <input v-model:="filter" placeholder="Filter">
+      <p>{{ filter }}</p>
     </div>
   </div>
 </template>
@@ -20,7 +21,14 @@ export default {
   name: 'Dropdown',
   data() {
     return {
-      open: false
+      open: false,
+      filter: '',
+      feed: {
+        'REDDIT FEEDS': ['Home', 'Popular', 'All', 'Fresh Bread'],
+        'FAVORITES': ['b/bred', 'b/HoneyOat', 'b/Sourdough', 'b/wholeWheat'],
+        'MY BAKERIES': ['b/bred', 'b/catBread', 'b/crumz', 'b/HoneyOat', 'b/raisinBread', 'b/Sourdough', 'b/wholeWheat'],
+        'OTHER': ['User Settings', 'Messages', 'Create Toast', 'Create Bakery', 'Crumbz', 'Toastie']
+      }
     }
   }
 }
@@ -32,6 +40,7 @@ export default {
   border-bottom-right-radius: 0px;
 }
 .content {
+  cursor: crosshair;
   position: absolute;
   width: 268px;
   height: 482px;
@@ -44,6 +53,7 @@ export default {
   border-right: 1px solid rgb(237, 239, 241);
   border-bottom: 1px solid rgb(237, 239, 241);
   overflow: scroll;
+  overflow-x: hidden;
 }
 .main-icon-container {
   float: left;
@@ -87,9 +97,9 @@ export default {
   font-size: 22px;
   padding: 6px;
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1070px) {
   .content {
-    left: 144.2px;
+    left: 146px;
   }
 }
 @media screen and (min-width: 996px) {
