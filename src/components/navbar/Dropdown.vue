@@ -3,15 +3,25 @@
     <div class="main-icon-container">
       <i class="fa fa-couch main-icon"></i>
     </div>
-    <div class="text-container">
-      <p class="text">Home</p>
+    <div class="current-text-container">
+      <p class="current-text">{{ current }}</p>
     </div>
     <div class="sort-container">
       <i class="fa fa-sort-down sort"></i>
     </div>
     <div v-if="open" class="content">
-      <input v-model:="filter" placeholder="Filter">
+      <input v-model:="filter" placeholder="Filter" class ="filter">
       <p>{{ filter }}</p>
+      <div v-for="key in keys" :key="key">
+        <p>{{ key }}</p>
+        <ul>
+          <li
+            v-for="(value,index) in feed[key]"
+            :key="index"
+            v-on:click="current = value"
+          >{{value}}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -22,9 +32,16 @@ export default {
   data() {
     return {
       open: false,
+      current: 'Home',
       filter: '',
+      keys: [
+        'BREDDIT FEEDS',
+        'FAVORITES',
+        'MY BAKERIES',
+        'OTHER'
+      ],
       feed: {
-        'REDDIT FEEDS': ['Home', 'Popular', 'All', 'Fresh Bread'],
+        'BREDDIT FEEDS': ['Home', 'Popular', 'All', 'Fresh Bread'],
         'FAVORITES': ['b/bred', 'b/HoneyOat', 'b/Sourdough', 'b/wholeWheat'],
         'MY BAKERIES': ['b/bred', 'b/catBread', 'b/crumz', 'b/HoneyOat', 'b/raisinBread', 'b/Sourdough', 'b/wholeWheat'],
         'OTHER': ['User Settings', 'Messages', 'Create Toast', 'Create Bakery', 'Crumbz', 'Toastie']
@@ -35,6 +52,22 @@ export default {
 </script>
 
 <style scoped>
+.filter {
+  margin: 16px 16px 0 16px;
+  width: calc(100% - 32px);
+}
+input {
+  border: 1px solid rgb(237, 239, 241);
+  background-color: rgb(246, 247, 248);
+  height: 32px;
+  margin-top: 0px;
+  padding-left: 5px;
+}
+input:focus {
+  border: 1px solid #0079d3;
+  outline-width: 0;
+  background-color: white;
+}
 .corners {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
@@ -70,7 +103,7 @@ export default {
   text-align: right;
   display: none;
 }
-.text-container {
+.current-text-container {
   float: left;
   justify-content: center;
   width: 172px;
@@ -87,7 +120,7 @@ export default {
   border-radius: 4px;
   border: 1px solid rgb(237, 239, 241);
 }
-.text {
+.current-text {
   font-family: IBMPlexSans, Arial, sans-serif;
   font-size: 14px;
   margin: 10px 0 0 0;
@@ -97,13 +130,18 @@ export default {
   font-size: 22px;
   padding: 6px;
 }
+.sub-icon {
+  color: #0079d3;
+  font-size: 20px;
+  padding-right: 8px;
+}
 @media screen and (min-width: 1070px) {
   .content {
     left: 146px;
   }
 }
 @media screen and (min-width: 996px) {
-  .text-container {
+  .current-text-container {
     display: block;
   }
 }
