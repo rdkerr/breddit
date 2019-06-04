@@ -1,26 +1,35 @@
 <template>
-  <div class="nav-dropdown" v-on:click="open= !open" v-bind:class="{corners: open }">
-    <div class="main-icon-container">
-      <i class="fa fa-couch main-icon"></i>
-    </div>
-    <div class="current-text-container">
-      <p class="current-text">{{ current }}</p>
-    </div>
-    <div class="sort-container">
-      <i class="fa fa-sort-down sort"></i>
+  <div class="nav-dropdown" v-bind:class="{corners: open }">
+    <div v-on:click="open= !open">
+      <div class="main-icon-container">
+        <i class="fa fa-couch main-icon"></i>
+      </div>
+      <div class="current-text-container">
+        <p class="current-text">{{ current }}</p>
+      </div>
+      <div class="sort-container">
+        <i class="fa fa-sort-down sort"></i>
+      </div>
     </div>
     <div v-if="open" class="content">
-      <input v-model:="filter" placeholder="Filter" class ="filter">
+      <input
+        v-bind:value="filter"
+        v-on:input="filter = $event.target.value" placeholder="Filter"
+        class ="filter"
+      >
       <p>{{ filter }}</p>
       <div v-for="key in keys" :key="key">
-        <p>{{ key }}</p>
-        <ul>
-          <li
+        <div class="category">{{ key }}</div>
+          <div
+            class="text"
             v-for="(value,index) in feed[key]"
             :key="index"
             v-on:click="current = value"
-          >{{value}}</li>
-        </ul>
+          >
+            <i class="fa icon" :class="icons[value]"></i>
+            {{value}}
+            <i class="fa fa-bread-slice icon right"></i>
+          </div>
       </div>
     </div>
   </div>
@@ -40,10 +49,15 @@ export default {
         'MY BAKERIES',
         'OTHER'
       ],
+      icons: {
+        'Home': 'fa-couch', 'Popular': 'fa-pepper-hot', 'All': 'fa-shopping-cart', 'Fresh Bread': 'fa-hamburger', 'User Settings': 'fa-ghost', 'Messages': 'fa-envelope', 'Create Toast': 'fa-scroll',
+        'Create Bakery': 'fa-scroll', 'Crumbz': 'fa-fire-alt', 'Toastie': 'fa-dragon'
+
+      },
       feed: {
         'BREDDIT FEEDS': ['Home', 'Popular', 'All', 'Fresh Bread'],
-        'FAVORITES': ['b/bred', 'b/HoneyOat', 'b/Sourdough', 'b/wholeWheat'],
-        'MY BAKERIES': ['b/bred', 'b/catBread', 'b/crumz', 'b/HoneyOat', 'b/raisinBread', 'b/Sourdough', 'b/wholeWheat'],
+        'FAVORITES': ['b/bred', 'b/JudgeBredd', 'b/Sourdough', 'b/wholeWheat'],
+        'MY BAKERIES': ['b/bred', 'b/catBread', 'b/JudgeBredd', 'b/HoneyOat', 'b/raisinBread', 'b/Sourdough', 'b/wholeWheat'],
         'OTHER': ['User Settings', 'Messages', 'Create Toast', 'Create Bakery', 'Crumbz', 'Toastie']
       }
     }
@@ -52,9 +66,26 @@ export default {
 </script>
 
 <style scoped>
+.right {
+  float: right;
+}
+.text {
+  font-family: IBMPlexSans, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: rgb(28, 28, 28);
+}
+.category {
+  padding: 0 24px 8px 24px;
+  color: rgb(135, 138, 140);
+  display: block;
+  font-family: IBMPlexSans, Arial, sans-serif;
+  font-size: 10px;
+}
 .filter {
   margin: 16px 16px 0 16px;
-  width: calc(100% - 32px);
+  width: calc(100% - 40px);
 }
 input {
   border: 1px solid rgb(237, 239, 241);
@@ -73,7 +104,7 @@ input:focus {
   border-bottom-right-radius: 0px;
 }
 .content {
-  cursor: crosshair;
+  cursor: default;
   position: absolute;
   width: 268px;
   height: 482px;
@@ -128,6 +159,11 @@ input:focus {
 .main-icon {
   color: #0079d3;
   font-size: 22px;
+  padding: 6px;
+}
+.icon {
+  color: #0079d3;
+  font-size: 20px;
   padding: 6px;
 }
 .sub-icon {

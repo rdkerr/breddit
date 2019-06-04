@@ -5,10 +5,10 @@
         <i class="fa fa-pepper-hot icon"></i>
       </div>
       <div class="icon-container">
-        <i class="fa fa-hamburger icon"></i>
+        <i class="fa fa-shopping-cart icon"></i>
       </div>
       <div class="icon-container">
-        <i class="fa fa-shopping-cart icon"></i>
+        <i class="fa fa-hamburger icon"></i>
       </div>
     </div>
   </div>
