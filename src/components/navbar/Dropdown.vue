@@ -50,14 +50,12 @@ export default {
         'OTHER'
       ],
       icons: {
-        'Home': 'fa-couch', 'Popular': 'fa-pepper-hot', 'All': 'fa-shopping-cart', 'Fresh Bread': 'fa-hamburger', 'User Settings': 'fa-ghost', 'Messages': 'fa-envelope', 'Create Toast': 'fa-scroll',
-        'Create Bakery': 'fa-scroll', 'Crumbz': 'fa-fire-alt', 'Toastie': 'fa-dragon'
-
+        'Home': 'fa-couch', 'Popular': 'fa-pepper-hot', 'All': 'fa-shopping-cart', 'Fresh Bread': 'fa-hamburger', 'User Settings': 'fa-ghost', 'Messages': 'fa-envelope', 'Create Toast': 'fa-scroll', 'Create Bakery': 'fa-scroll', 'Crumbz': 'fa-fire-alt', 'Toastie': 'fa-dragon', 'b/bred': 'fa-air-freshener', 'b/catBread': 'fa-burn', 'b/JudgeBredd': 'fa-biohazard', 'b/HoneyOat': 'fa-bone', 'b/Sourdough': 'fa-bomb', 'b/wholeWheat': 'fa-bolt'
       },
       feed: {
         'BREDDIT FEEDS': ['Home', 'Popular', 'All', 'Fresh Bread'],
-        'FAVORITES': ['b/bred', 'b/JudgeBredd', 'b/Sourdough', 'b/wholeWheat'],
-        'MY BAKERIES': ['b/bred', 'b/catBread', 'b/JudgeBredd', 'b/HoneyOat', 'b/raisinBread', 'b/Sourdough', 'b/wholeWheat'],
+        'FAVORITES': ['b/JudgeBredd', 'b/Sourdough', 'b/wholeWheat'],
+        'MY BAKERIES': ['b/bred', 'b/catBread', 'b/JudgeBredd', 'b/HoneyOat', 'b/Sourdough', 'b/wholeWheat'],
         'OTHER': ['User Settings', 'Messages', 'Create Toast', 'Create Bakery', 'Crumbz', 'Toastie']
       }
     }
@@ -75,9 +73,14 @@ export default {
   font-weight: 400;
   line-height: 18px;
   color: rgb(28, 28, 28);
+  padding: 0 10px;
+}
+.text:hover{
+  background-color: rgb(246, 247, 248);
+  cursor: pointer;
 }
 .category {
-  padding: 0 24px 8px 24px;
+  padding: 10px 24px 8px 24px;
   color: rgb(135, 138, 140);
   display: block;
   font-family: IBMPlexSans, Arial, sans-serif;
@@ -93,6 +96,7 @@ input {
   height: 32px;
   margin-top: 0px;
   padding-left: 5px;
+  padding-bottom: 0px;
 }
 input:focus {
   border: 1px solid #0079d3;
@@ -118,6 +122,7 @@ input:focus {
   border-bottom: 1px solid rgb(237, 239, 241);
   overflow: scroll;
   overflow-x: hidden;
+  padding-bottom: 10px;
 }
 .main-icon-container {
   float: left;
