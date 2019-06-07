@@ -129,9 +129,11 @@ input:focus {
   border-left: 1px solid rgb(237, 239, 241);
   border-right: 1px solid rgb(237, 239, 241);
   border-bottom: 1px solid rgb(237, 239, 241);
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
   overflow: scroll;
   overflow-x: hidden;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 .main-icon-container {
   float: left;
