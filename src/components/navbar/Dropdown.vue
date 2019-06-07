@@ -2,7 +2,7 @@
   <div class="nav-dropdown" v-bind:class="{corners: open }">
     <div v-on:click="open= !open">
       <div class="main-icon-container">
-        <i class="fa fa-couch main-icon"></i>
+        <i class="fa main-icon" :class=icons[current]></i>
       </div>
       <div class="current-text-container">
         <p class="current-text">{{ current }}</p>
@@ -26,9 +26,13 @@
             :key="index"
             v-on:click="current = value"
           >
-            <i class="fa icon" :class="icons[value]"></i>
+            <div class="icon-container">
+              <i class="fa icon" :class="icons[value]"></i>
+            </div>
             {{value}}
-            <i class="fa fa-bread-slice icon right"></i>
+            <i v-if="key == keys[1]" class="fa fa-bread-slice icon right" v-on:click.stop="feed[keys[1]].splice(index,1)"></i>
+            <i v-else-if="key == keys[2] && feed[keys[1]].includes(value)" class="fa fa-bread-slice icon right" v-on:click.stop="feed[keys[1]].splice(index,1)"></i>
+            <i v-else-if="key == keys[2]" class="fa fa-bread-slice icon right disabled" v-on:click.stop="feed[keys[1]].push(value)"></i>
           </div>
       </div>
     </div>
@@ -64,6 +68,11 @@ export default {
 </script>
 
 <style scoped>
+.icon-container {
+  width: 40px;
+  display: inline-block;
+  text-align: center;
+}
 .right {
   float: right;
 }
@@ -169,12 +178,15 @@ input:focus {
 .icon {
   color: #0079d3;
   font-size: 20px;
-  padding: 6px;
+  padding: 5px;
 }
 .sub-icon {
   color: #0079d3;
   font-size: 20px;
   padding-right: 8px;
+}
+.disabled {
+  color: rgb(223, 222, 222);
 }
 @media screen and (min-width: 1070px) {
   .content {
