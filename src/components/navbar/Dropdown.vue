@@ -31,7 +31,7 @@
             </div>
             {{value}}
             <i v-if="key == keys[1]" class="fa fa-bread-slice icon right" v-on:click.stop="feed[keys[1]].splice(index,1)"></i>
-            <i v-else-if="key == keys[2] && feed[keys[1]].includes(value)" class="fa fa-bread-slice icon right" v-on:click.stop="feed[keys[1]].splice(index,1)"></i>
+            <i v-else-if="key == keys[2] && feed[keys[1]].includes(value)" class="fa fa-bread-slice icon right" v-on:click.stop="feed[keys[1]].splice(feed[keys[1]].indexOf(value),1)"></i>
             <i v-else-if="key == keys[2]" class="fa fa-bread-slice icon right disabled" v-on:click.stop="feed[keys[1]].push(value)"></i>
           </div>
       </div>
