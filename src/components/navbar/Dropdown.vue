@@ -1,6 +1,6 @@
 <template>
   <div class="nav-dropdown" v-bind:class="{corners: dropdownOpen }">
-    <div v-on:click="$emit('clicked')" @blur="print()">
+    <div v-on:click="$emit('clicked')">
       <div class="main-icon-container">
         <i class="fa main-icon" :class=icons[current]></i>
       </div>

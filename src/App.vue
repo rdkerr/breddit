@@ -48,6 +48,8 @@ body {
 #app {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #2c3e50;
+  height: calc(100vh - 49px);
+  background: red;
 }
 
 </style>
