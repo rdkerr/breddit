@@ -12,7 +12,7 @@
         <i class="fa fa-sort-down sort"></i>
       </div>
     </div>
-    <div v-if="profileOpen" class="content">
+    <div v-if="profileOpen" v-clickaway="() => $emit('clicked')" class="content">
       <div v-for="key in keys" :key="key">
       <div class="category">{{ key }}</div>
         <div

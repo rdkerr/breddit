@@ -1,6 +1,6 @@
 <template>
   <div class="nav-dropdown" v-bind:class="{corners: dropdownOpen }">
-    <div v-on:click="$emit('clicked')">
+    <div v-on:click="$emit('clicked')" @blur="print()">
       <div class="main-icon-container">
         <i class="fa main-icon" :class=icons[current]></i>
       </div>
@@ -11,7 +11,7 @@
         <i class="fa fa-sort-down sort"></i>
       </div>
     </div>
-    <div v-if="dropdownOpen" class="content">
+    <div v-if="dropdownOpen" v-clickaway="() => $emit('clicked')" class="content">
       <input
         v-bind:value="filterString"
         v-on:input="filterString = $event.target.value" placeholder="Filter"
@@ -69,6 +69,9 @@ export default {
       return that.feed[key].filter(function(bread) {
         return that.filterString === '' ? true : bread.toLowerCase().includes(that.filterString.toLowerCase());
       })
+    },
+    print: function() {
+      console.log('hi')
     }
   }
 }
