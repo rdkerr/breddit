@@ -32,6 +32,7 @@ export default {
   line-height: 36px;
 }
 .icon-container {
+  cursor: pointer;
   display: inline-block;
   width: 32px;
   height: 32px;

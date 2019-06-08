@@ -1,25 +1,133 @@
 <template>
   <div class="user-dropdown">
-    <div class="icon-container">
-      <i class="fa fa-ghost icon"></i>
+    <div v-on:click="open= !open">
+      <div class="icon-container">
+        <i class="fa fa-ghost icon"></i>
+      </div>
+      <div class="text-container">
+        <p class="user-name">username</p>
+        <p class="user-name cookies-text"><span><i class="fa fa-cookie-bite cookie"></i></span>123 cookies</p>
+      </div>
+      <div class="sort-container">
+        <i class="fa fa-sort-down sort"></i>
+      </div>
     </div>
-    <div class="text-container">
-      <p class="user-name">username</p>
-      <p class="user-name cookies-text"><span><i class="fa fa-cookie-bite cookie"></i></span>123 cookies</p>
-    </div>
-    <div class="sort-container">
-      <i class="fa fa-sort-down sort"></i>
+    <div v-if="open" class="content">
+      <div v-for="key in keys" :key="key">
+      <div class="category">{{ key }}</div>
+        <div
+          class="text"
+          v-for="(value,index) in feed[key]"
+          :key="index"
+        >
+          <div class="icon-container">
+            <i class="fa item-icon" :class="icons[value]"></i>
+          </div>
+          <div class='item-text'>{{value}}</div>
+          <i v-if="value == 'Night Mode'" class="fa item-icon right" :class="night ? icons['off'] : icons['on']" v-on:click="night = !night"></i>
+        </div>
+      </div>
+      <hr>
+      <div class="log-out">
+      <div class="icon-container pad">
+        <i class="fa item-icon" :class="icons['Log Out']"></i>
+      </div>
+      <div class='item-text'>Log Out</div></div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Profile'
+  name: 'Profile',
+  data() {
+    return {
+      open: false,
+      night: false,
+      keys: [
+        'MY STUFF',
+        'VIEW OPTIONS',
+        'MORE STUFF'
+      ],
+      icons: {
+        'My Profile': 'fa-user-circle', 'User Settings': 'fa-cog', 'Night Mode': 'fa-cloud-moon', 'Reddit Coins': 'fa-fire-alt', 'Reddit Premium': 'fa-dragon', 'Help Center': 'fa-question-circle', 'Visit Old Reddit': 'fa-external-link-alt', 'Log Out': 'fa-sign-out-alt', 'off': 'fa-toggle-off', 'on': 'fa-toggle-on'
+      },
+      feed: {
+        'MY STUFF': ['My Profile', 'User Settings'],
+        'VIEW OPTIONS': ['Night Mode'],
+        'MORE STUFF': ['Reddit Coins', 'Reddit Premium', 'Help Center', 'Visit Old Reddit']
+      }
+    }
+  }
 }
 </script>
 
 <style scoped>
+.right {
+  float: right;
+}
+.log-out {
+  height: 40px;
+}
+hr {
+  width: 85%;
+  color: rgb(135, 138, 140);
+}
+.pad {
+  padding-left: 8px;
+}
+.item-text {
+  padding: 5px 0 0 5px;
+  display: inline-block;
+  height: 100%;
+}
+.icon-container {
+  width: 40px;
+  display: inline-block;
+  text-align: center;
+}
+.text {
+  font-family: IBMPlexSans, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: rgb(28, 28, 28);
+  padding: 0 10px;
+  margin-top: 0;
+  height: 40px;
+}
+.text:hover, .log-out:hover {
+  background-color: rgb(246, 247, 248);
+  cursor: pointer;
+}
+.category {
+  padding: 10px 24px 8px 24px;
+  color: rgb(135, 138, 140);
+  display: block;
+  font-family: IBMPlexSans, Arial, sans-serif;
+  font-size: 10px;
+}
+.corners {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.content {
+  cursor: default;
+  position: absolute;
+  width: 215px;
+  height: 435px;
+  background-color: #fff;
+  top: 41px;
+  right: 20px;
+  z-index: 2;
+  overflow: show;
+  border-left: 1px solid rgb(237, 239, 241);
+  border-right: 1px solid rgb(237, 239, 241);
+  border-bottom: 1px solid rgb(237, 239, 241);
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  overflow-x: hidden;
+}
 .cookie {
   color: rgb(255, 69, 0);
   padding-right: 2px;
@@ -65,15 +173,15 @@ export default {
   border-radius: 4px;
   border: 1px solid rgb(237, 239, 241);
 }
-.text {
-  font-family: IBMPlexSans, Arial, sans-serif;
-  font-size: 14px;
-  margin: 10px 0 0 0;
-}
 .icon {
   color: rgb(135, 138, 140);
   font-size: 22px;
   padding: 6px 0 6px 10px;
+}
+.item-icon {
+  color: rgb(135, 138, 140);
+  font-size: 20px;
+  padding: 5px;
 }
 @media screen and (min-width: 1200px) {
   .text-container {
