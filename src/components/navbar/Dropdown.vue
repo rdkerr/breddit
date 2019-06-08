@@ -13,16 +13,15 @@
     </div>
     <div v-if="open" class="content">
       <input
-        v-bind:value="filter"
-        v-on:input="filter = $event.target.value" placeholder="Filter"
+        v-bind:value="filterString"
+        v-on:input="filterString = $event.target.value" placeholder="Filter"
         class ="filter"
       >
-      <p>{{ filter }}</p>
       <div v-for="key in keys" :key="key">
-        <div class="category">{{ key }}</div>
+        <div class="category" v-if="filterFeeds(key).length > 0">{{ key }}</div>
           <div
             class="text"
-            v-for="(value,index) in feed[key]"
+            v-for="(value,index) in filterFeeds(key)"
             :key="index"
             v-on:click="current = value"
           >
@@ -46,7 +45,7 @@ export default {
     return {
       open: false,
       current: 'Home',
-      filter: '',
+      filterString: '',
       keys: [
         'BREDDIT FEEDS',
         'FAVORITES',
@@ -62,6 +61,14 @@ export default {
         'MY BAKERIES': ['b/bred', 'b/catBread', 'b/JudgeBredd', 'b/HoneyOat', 'b/Sourdough', 'b/wholeWheat'],
         'OTHER': ['User Settings', 'Messages', 'Create Toast', 'Create Bakery', 'Crumbz', 'Toastie']
       }
+    }
+  },
+  methods: {
+    filterFeeds: function(key) {
+      let that = this;
+      return that.feed[key].filter(function(bread) {
+        return that.filterString === '' ? true : bread.toLowerCase().includes(that.filterString.toLowerCase());
+      })
     }
   }
 }
@@ -120,7 +127,7 @@ input:focus {
   cursor: default;
   position: absolute;
   width: 268px;
-  height: 482px;
+  max-height: 482px;
   background-color: #fff;
   top: 41px;
   left: 60px;
