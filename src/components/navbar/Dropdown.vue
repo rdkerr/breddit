@@ -1,6 +1,6 @@
 <template>
   <div class="nav-dropdown" v-bind:class="{corners: open }">
-    <div v-on:click="open= !open">
+    <div v-on:click="$emit('clicked')">
       <div class="main-icon-container">
         <i class="fa main-icon" :class=icons[current]></i>
       </div>
@@ -11,7 +11,7 @@
         <i class="fa fa-sort-down sort"></i>
       </div>
     </div>
-    <div v-if="open" class="content">
+    <div v-if="dropdownOpen" class="content">
       <input
         v-bind:value="filterString"
         v-on:input="filterString = $event.target.value" placeholder="Filter"
@@ -41,9 +41,9 @@
 <script>
 export default {
   name: 'Dropdown',
+  props: ['dropdownOpen'],
   data() {
     return {
-      open: false,
       current: 'Home',
       filterString: '',
       keys: [

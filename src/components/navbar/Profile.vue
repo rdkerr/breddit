@@ -1,6 +1,6 @@
 <template>
   <div class="user-dropdown">
-    <div v-on:click="open= !open">
+    <div v-on:click="$emit('clicked')">
       <div class="icon-container">
         <i class="fa fa-ghost icon"></i>
       </div>
@@ -12,7 +12,7 @@
         <i class="fa fa-sort-down sort"></i>
       </div>
     </div>
-    <div v-if="open" class="content">
+    <div v-if="profileOpen" class="content">
       <div v-for="key in keys" :key="key">
       <div class="category">{{ key }}</div>
         <div
@@ -40,9 +40,9 @@
 <script>
 export default {
   name: 'Profile',
+  props: ['profileOpen'],
   data() {
     return {
-      open: false,
       night: false,
       keys: [
         'MY STUFF',

@@ -1,11 +1,11 @@
 <template>
   <div id="navbar">
     <Brand></Brand>
-    <Dropdown></Dropdown>
+    <Dropdown v-on:clicked="toggleDropdown()" :dropdownOpen="dropdownOpen"></Dropdown>
     <Search></Search>
     <QuickLaunch></QuickLaunch>
     <Compose></Compose>
-    <Profile></Profile>
+    <Profile v-on:clicked="toggleProfile()" :profileOpen="profileOpen"></Profile>
   </div>
 </template>
 
@@ -26,6 +26,26 @@ export default {
     QuickLaunch,
     Compose,
     Profile
+  },
+  data() {
+    return {
+      'profileOpen': false,
+      'dropdownOpen': false
+    }
+  },
+  methods: {
+    toggleProfile: function() {
+      if(!this.profileOpen) {
+        this.dropdownOpen = false
+      }
+      this.profileOpen = !this.profileOpen
+    },
+    toggleDropdown: function() {
+      if(!this.dropdownOpen) {
+        this.profileOpen = false
+      }
+      this.dropdownOpen = !this.dropdownOpen
+    }
   }
 }
 </script>
