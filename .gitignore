@@ -5,6 +5,7 @@ npm-debug.log
 yarn-error.log
 coverage/
 __snapshots__/
+bread/
 
 # Editor directories and files
 .idea
