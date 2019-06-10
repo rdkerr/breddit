@@ -71,7 +71,8 @@ export default {
 }
 hr {
   width: 85%;
-  color: rgb(135, 138, 140);
+  border-color: rgb(220, 222, 223);
+  border-style: solid;
 }
 .pad {
   padding-left: 8px;
@@ -113,8 +114,8 @@ hr {
 }
 .content {
   cursor: default;
-  position: absolute;
-  width: 215px;
+  position: fixed;
+  width: 198px;
   height: 435px;
   background-color: #fff;
   top: 41px;
@@ -176,7 +177,8 @@ hr {
 .icon {
   color: rgb(135, 138, 140);
   font-size: 22px;
-  padding: 6px 0 6px 10px;
+  align-items: center;
+  padding-top: 5px;
 }
 .item-icon {
   color: rgb(135, 138, 140);

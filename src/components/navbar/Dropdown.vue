@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-dropdown" v-bind:class="{corners: dropdownOpen }">
+  <div class="nav-dropdown" :class="dropdownOpen ? 'corners' : ''">
     <div v-on:click="$emit('clicked')">
       <div class="main-icon-container">
         <i class="fa main-icon" :class=icons[current]></i>
@@ -128,13 +128,12 @@ input:focus {
 }
 .content {
   cursor: default;
-  position: absolute;
+  position: fixed;
   width: 268px;
   max-height: 482px;
   background-color: #fff;
   top: 41px;
   left: 60px;
-  z-index: 1;
   overflow: show;
   border-left: 1px solid rgb(237, 239, 241);
   border-right: 1px solid rgb(237, 239, 241);

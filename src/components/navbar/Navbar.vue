@@ -54,7 +54,7 @@ export default {
 #navbar {
   top: 0;
   height: 48px;
-
+  position: fixed;
   border-bottom-color: rgb(237, 239, 241);
   border-bottom-style: solid;
   border-bottom-width: 1px;
@@ -62,5 +62,6 @@ export default {
   display: flex;
   width: 100%;
   overflow: hidden;
+  z-index: 20;
 }
 </style>

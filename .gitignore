@@ -6,6 +6,7 @@ yarn-error.log
 coverage/
 __snapshots__/
 bread/
+ads/
 
 # Editor directories and files
 .idea
