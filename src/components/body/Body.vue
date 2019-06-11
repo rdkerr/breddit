@@ -1,25 +1,22 @@
 <template>
   <div class="body">
-    <div class="banner">
-      THIS IS THE BANNER
-    </div>
-    <div class="utilityBar">
-      VIEW: STUFF
-    </div>
-    <div class="container">
-      <div class="postList">
-        POSTS
-      </div>
-      <div class="sidebar">
-        SIDEBAR
-      </div>
-    </div>
+    <Banner></Banner>
+    <UtilityBar></UtilityBar>
+    <PostList></PostList>
   </div>
 </template>
 
 <script>
+import Banner from './Banner'
+import UtilityBar from './UtilityBar'
+import PostList from './PostList'
 export default {
-  name: 'Body'
+  name: 'Body',
+  components: {
+    Banner,
+    UtilityBar,
+    PostList
+  }
 }
 </script>
 
@@ -28,7 +25,7 @@ export default {
   height: 100%;
   background: yellow;
   width: 100%;
-  display: inline-block;
+  display: flex;
 }
 .body {
   height: calc(100vh - 49px);
@@ -52,7 +49,7 @@ export default {
   opacity: 0.5;
 }
 .postList {
-  width: 60%;
+  flex-grow: 1;
   height: 100%;
   float: left;
   opacity: 0.5;
@@ -61,9 +58,15 @@ export default {
 .sidebar {
   float: left;
   height: 100%;
-  width: 40%;
+  width: 312px;
   opacity: 0.5;
   background: brown;
+  display: none;
+}
+@media screen and (min-width: 950px) {
+  .sidebar {
+    display: block;
+  }
 }
 
 </style>
