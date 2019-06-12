@@ -36,9 +36,9 @@ export default {
   font-size: 40px;
 }
 .banner {
-  height: 100px;
+  height: 200px;
   width: 100%;
-  background: blue;
+  background: gray;
   display: flex;
 }
 </style>
