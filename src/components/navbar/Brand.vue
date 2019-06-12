@@ -43,10 +43,12 @@ export default {
 .i {
   color: rgb(255, 69, 0);
   position: relative;
+
 }
 .i:before {
   content: "ı";
   position: absolute;
   color: black;
+  left: -1px;
 }
 </style>
