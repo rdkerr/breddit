@@ -27,7 +27,7 @@ export default {
 
 <style scoped>
 .body {
-  height: calc(100vh - 49px);
+  height: calc(100vh - 48px);
   background: #DAE0E6;
   overflow: scroll;
   overflow-x: hidden;
