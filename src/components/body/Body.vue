@@ -8,7 +8,7 @@
 
 <script>
 import Banner from './Banner'
-import UtilityBar from './UtilityBar'
+import UtilityBar from '../utilitybar/UtilityBar'
 import PostList from './PostList'
 export default {
   name: 'Body',

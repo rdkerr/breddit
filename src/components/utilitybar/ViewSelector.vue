@@ -1,5 +1,5 @@
 <template>
-  <div class="utilityBar">
+  <div class="container">
     <div class="text">VIEW</div>
     <div class="button-container">
       <div class="button" v-on:click="getView('Card')" :class="getActive('Card') ? 'inactive' : ''">
@@ -18,14 +18,12 @@
         <div class="fourth"></div>
       </div>
     </div>
-    <div class="separator"></div>
-    <div class="text">SORT</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'UtilityBar',
+  name: 'ViewSelector',
   data() {
     return {
       active: 'Classic'
@@ -43,25 +41,13 @@ export default {
 </script>
 
 <style scoped>
-.separator {
-  height: 22px;
-  width: 1px;
-  background: rgb(135, 138, 140);
-  float: left;
-  margin: 7px 15px 0 10px;
-}
-.utilityBar {
-  height: 40px;
-  width: 100%;
-  background: white;
-  padding-left: 20px;
+.container {
   display: flex;
   flex-direction: row;
 }
 .text {
   font-size: 16px;
   color: rgb(124, 124, 124);
-
   margin-top: 10px;
   margin-right: 12px;
   font-weight: 700
@@ -76,7 +62,6 @@ export default {
   height: 20px;
   width: 20px;
   margin-right: 10px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
