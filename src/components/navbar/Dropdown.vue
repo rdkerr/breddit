@@ -53,13 +53,13 @@ export default {
         'OTHER'
       ],
       icons: {
-        'Home': 'fa-couch', 'Popular': 'fa-pepper-hot', 'All': 'fa-shopping-cart', 'Fresh Bread': 'fa-hamburger', 'User Settings': 'fa-ghost', 'Messages': 'fa-envelope', 'Create Toast': 'fa-scroll', 'Create Bakery': 'fa-scroll', 'Crumbz': 'fa-fire-alt', 'Toastie': 'fa-dragon', 'b/bred': 'fa-air-freshener', 'b/catBread': 'fa-burn', 'b/JudgeBredd': 'fa-biohazard', 'b/HoneyOat': 'fa-bone', 'b/Sourdough': 'fa-bomb', 'b/wholeWheat': 'fa-bolt'
+        'Home': 'fa-couch', 'Popular': 'fa-pepper-hot', 'All': 'fa-shopping-cart', 'Fresh Bread': 'fa-hamburger', 'User Settings': 'fa-ghost', 'Messages': 'fa-envelope', 'Create Toast': 'fa-scroll', 'Create Bakery': 'fa-scroll', 'Sipz': 'fa-glass-whiskey', 'Bro': 'fa-user-ninja', 'b/bred': 'fa-air-freshener', 'b/catBread': 'fa-burn', 'b/JudgeBredd': 'fa-biohazard', 'b/HoneyOat': 'fa-bone', 'b/Sourdough': 'fa-bomb', 'b/wholeWheat': 'fa-bolt'
       },
       feed: {
         'BREDDIT FEEDS': ['Home', 'Popular', 'All', 'Fresh Bread'],
         'FAVORITES': ['b/JudgeBredd', 'b/Sourdough', 'b/wholeWheat'],
         'MY BAKERIES': ['b/bred', 'b/catBread', 'b/JudgeBredd', 'b/HoneyOat', 'b/Sourdough', 'b/wholeWheat'],
-        'OTHER': ['User Settings', 'Messages', 'Create Toast', 'Create Bakery', 'Crumbz', 'Toastie']
+        'OTHER': ['User Settings', 'Messages', 'Create Toast', 'Create Bakery', 'Sipz', 'Bro']
       }
     }
   },

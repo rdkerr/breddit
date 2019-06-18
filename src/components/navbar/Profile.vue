@@ -50,12 +50,12 @@ export default {
         'MORE STUFF'
       ],
       icons: {
-        'My Profile': 'fa-user-circle', 'User Settings': 'fa-cog', 'Night Mode': 'fa-cloud-moon', 'Breddit Crumbz': 'fa-fire-alt', 'Breddit Toastie': 'fa-dragon', 'Help Center': 'fa-question-circle', 'Visit Old Breddit': 'fa-external-link-alt', 'Log Out': 'fa-sign-out-alt', 'off': 'fa-toggle-off', 'on': 'fa-toggle-on'
+        'My Profile': 'fa-user-circle', 'User Settings': 'fa-cog', 'Night Mode': 'fa-cloud-moon', 'Breddit Sipz': 'fa-glass-whiskey', 'Breddit Bro': 'fa-user-ninja', 'Help Center': 'fa-question-circle', 'Visit Old Breddit': 'fa-external-link-alt', 'Log Out': 'fa-sign-out-alt', 'off': 'fa-toggle-off', 'on': 'fa-toggle-on'
       },
       feed: {
         'MY STUFF': ['My Profile', 'User Settings'],
         'VIEW OPTIONS': ['Night Mode'],
-        'MORE STUFF': ['Breddit Crumbz', 'Breddit Toastie', 'Help Center', 'Visit Old Breddit']
+        'MORE STUFF': ['Breddit Sipz', 'Breddit Bro', 'Help Center', 'Visit Old Breddit']
       }
     }
   }
