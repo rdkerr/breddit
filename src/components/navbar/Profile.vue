@@ -6,7 +6,7 @@
       </div>
       <div class="text-container">
         <p class="user-name">username</p>
-        <p class="user-name cookies-text"><span><i class="fa fa-cookie-bite cookie"></i></span>123 cookies</p>
+        <p class="user-name cookies-text"><span><i class="fa fa-cookie-bite cookie"></i></span>123 sipz</p>
       </div>
       <div class="sort-container">
         <i class="fa fa-sort-down sort"></i>

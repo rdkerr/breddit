@@ -28,7 +28,7 @@ export default {
   width: 1px;
   background: rgb(135, 138, 140);
   float: left;
-  margin: 7px 15px 0 10px;
+  margin: 7px 10px 0 0px;
 }
 .utilityBar {
   height: 40px;
@@ -38,4 +38,5 @@ export default {
   display: flex;
   flex-direction: row;
 }
+
 </style>

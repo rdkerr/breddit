@@ -50,7 +50,8 @@ export default {
   color: rgb(124, 124, 124);
   margin-top: 10px;
   margin-right: 12px;
-  font-weight: 700
+  font-weight: 700;
+  display: none;
 }
 .button-container {
   margin: 7px;
@@ -83,5 +84,11 @@ export default {
 }
 .inactive {
   opacity: 0.5;
+}
+
+@media screen and (min-width: 800px) {
+  .text {
+    display: block;
+  }
 }
 </style>

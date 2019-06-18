@@ -3,10 +3,18 @@
     <div class="text">SORT</div>
     <div class="sort-selector" v-on:click="sortOpen = !sortOpen" v-clickaway="() => $emit('clicked')">
       <div class="sort-icon">
-        <i class="fa fa-otter"></i>
+        <i class="fa" :class="icons[active]"></i>
       </div>
       <div class="current-sort-text">
         {{ active }}
+      </div>
+      <div class="sort-down">
+        <i class="fa fa-sort-down carot"></i>
+      </div>
+    </div>
+    <div v-if="check()" class="time-selector" v-on:click="timeOpen = !timeOpen" v-clickaway="() => $emit('clicked')">
+      <div class="current-sort-text">
+        {{ activeTime }}
       </div>
       <div class="sort-down">
         <i class="fa fa-sort-down carot"></i>
@@ -20,6 +28,11 @@
         <div>{{key}}</div>
       </div>
     </div>
+    <div v-if="timeOpen && check()" v-clickaway="() => $emit('clicked')" class="time-content">
+      <div v-for="key in times" :key="key" class="content-item" v-on:click="active = key">
+        <div>{{key}}</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -28,20 +41,33 @@ export default {
   name: 'SortSelector',
   data() {
     return {
-      active: 'Fresh',
+      active: 'Best',
       sortOpen: false,
+      timeOpen: false,
+      activeTime: 'Past Hour',
       icons: {
-        'Best': 'fa-otter', 'Toasted': 'fa-fire-alt', 'Fresh': 'fa-bacon', 'Rising': 'fa-rocket'
+        'Best': 'fa-bacon', 'Toasted': 'fa-fire-alt', 'Fresh': 'fa-mug-hot', 'Rising': 'fa-rocket'
       },
       selector: [
-        'Fresh', 'Best', 'Toasted', 'Rising'
+        'Best', 'Fresh', 'Toasted', 'Rising'
+      ],
+      times: [
+        'Past Hour', 'Past 24 Hours', 'Past Week', 'Past Month', 'Past Year', 'Dawn of Time'
       ]
+    }
+  },
+  methods: {
+    check: function() {
+      return this.active === 'Toasted' || this.active === 'Rising'
     }
   }
 }
 </script>
 
 <style scoped>
+.time-content {
+  padding-left: 15px;
+}
 .content-item {
   padding: 5px;
   border-top: 1px rgb(237, 239, 241) solid;
@@ -62,6 +88,13 @@ export default {
   height: 100%;
   color: #0079d3;
 }
+.time-selector {
+  float: left;
+  display: flex;
+  height: 100%;
+  color: #0079d3;
+  padding-left: 10px;
+}
 .sort-content {
   background-color: rgb(255, 255, 255);
   border-radius: 4px;
@@ -70,7 +103,6 @@ export default {
   z-index: 3;
   clear: both;
   position: relative;
-  left: 50px;
   width: 100px;
 }
 .text {
@@ -80,6 +112,7 @@ export default {
   margin-right: 12px;
   font-weight: 700;
   float: left;
+  display: none;
 }
 .sort-icon {
   padding-right: 5px;
@@ -88,6 +121,7 @@ export default {
 .current-sort-text {
   padding-right: 5px;
   margin: auto 0;
+  font-weight: 600;
   text-transform: uppercase;
 }
 .sort-down {
@@ -95,5 +129,13 @@ export default {
 }
 .carot {
   vertical-align: 9px;
+}
+@media screen and (min-width: 600px) {
+  .text {
+    display: block;
+  }
+  .sort-content {
+    left: 50px;
+  }
 }
 </style>
