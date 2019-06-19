@@ -6,7 +6,7 @@
       </div>
       <div class="text-container">
         <p class="user-name">username</p>
-        <p class="user-name cookies-text"><span><i class="fa fa-cookie-bite cookie"></i></span>123 sipz</p>
+        <p class="user-name cookies-text"><span><i class="fa fa-glass-cheers whiskey"></i></span>123 cheerz</p>
       </div>
       <div class="sort-container">
         <i class="fa fa-sort-down sort"></i>
@@ -129,7 +129,7 @@ hr {
   border-bottom-left-radius: 4px;
   overflow-x: hidden;
 }
-.cookie {
+.whiskey {
   color: rgb(255, 69, 0);
   padding-right: 2px;
 }
