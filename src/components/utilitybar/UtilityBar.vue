@@ -2,18 +2,18 @@
   <div class="utilityBar">
     <ViewSelector></ViewSelector>
     <div class="separator"></div>
-    <SortSelector></SortSelector>
+    <SortContainer></SortContainer>
   </div>
 </template>
 
 <script>
 import ViewSelector from './ViewSelector'
-import SortSelector from './SortSelector'
+import SortContainer from './SortContainer'
 export default {
   name: 'UtilityBar',
   components: {
     ViewSelector,
-    SortSelector
+    SortContainer
   }
 }
 </script>
