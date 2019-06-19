@@ -2,10 +2,10 @@
   <div class="nav-dropdown" :class="dropdownOpen ? 'corners' : ''">
     <div v-on:click="$emit('clicked')">
       <div class="main-icon-container">
-        <i class="fa main-icon" :class=icons[current]></i>
+        <i class="fa main-icon" :class=icons[currentBakery]></i>
       </div>
       <div class="current-text-container">
-        <p class="current-text">{{ current }}</p>
+        <p class="current-text">{{ currentBakery }}</p>
       </div>
       <div class="sort-container">
         <i class="fa fa-sort-down sort"></i>
@@ -23,7 +23,7 @@
             class="text"
             v-for="(value,index) in filterFeeds(key)"
             :key="index"
-            v-on:click="current = value"
+            v-on:click="$emit('updateBakery', value)"
           >
             <div class="icon-container">
               <i class="fa icon" :class="icons[value]"></i>
@@ -41,7 +41,7 @@
 <script>
 export default {
   name: 'Dropdown',
-  props: ['dropdownOpen'],
+  props: ['dropdownOpen', 'currentBakery'],
   data() {
     return {
       current: 'Home',

@@ -1,7 +1,7 @@
 <template>
   <div id="navbar">
     <Brand></Brand>
-    <Dropdown v-on:clicked="toggleDropdown()" :dropdownOpen="dropdownOpen"></Dropdown>
+    <Dropdown v-on:clicked="toggleDropdown()" :dropdownOpen="dropdownOpen" v-on:updateBakery="updateBakery" :currentBakery="currentBakery"></Dropdown>
     <Search></Search>
     <QuickLaunch></QuickLaunch>
     <Compose></Compose>
@@ -30,7 +30,8 @@ export default {
   data() {
     return {
       'profileOpen': false,
-      'dropdownOpen': false
+      'dropdownOpen': false,
+      'currentBakery': 'Home'
     }
   },
   methods: {
@@ -45,6 +46,10 @@ export default {
         this.profileOpen = false
       }
       this.dropdownOpen = !this.dropdownOpen
+    },
+    updateBakery: function(newBakery) {
+      this.currentBakery = newBakery
+      this.dropdownOpen = false
     }
   }
 }

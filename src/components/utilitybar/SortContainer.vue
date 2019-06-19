@@ -46,6 +46,7 @@ export default {
     updateSort: function(newActive) {
       this.active = newActive
       this.show = this.active === 'Toasted' || this.active === 'Rising'
+      this.sortOpen = false
     }
   }
 }
