@@ -6,8 +6,11 @@
           <div class="voting">
             {{post.sipzCount}}
           </div>
-          <div class="image">
-            <img v-bind:src="post.imageURL" alt="iamge">
+          <div v-if="post.postType === 'image'" class="image">
+            <img :src="post.imageURL" alt="iamge">
+          </div>
+          <div v-else class="placeholder">
+            <i class="fa fa-newspaper paper"></i>
           </div>
           <div class="post-body">
             {{post.postTitle}}
@@ -38,13 +41,27 @@ export default {
 img {
   width: 100%;
 }
-.image {
+.image, .placeholder {
   width: 96px;
-  height: 60px;
+  height: 58px;
   margin: 8px 8px auto 8px;
   border-radius: 4px;
-  border: 1px solid blue;
+  border: 1px solid rgb(237, 239, 241);;
   overflow: hidden;
+}
+.placeholder {
+  width: 96px;
+  height: 58px;
+  margin: 8px 8px auto 8px;
+  border-radius: 4px;
+  border: 1px solid rgb(237, 239, 241);;
+  overflow: hidden;
+  background: rgb(246, 247, 248);
+}
+.paper {
+  padding: 15px 20px;
+  font-size: 30px;
+  color: rgb(135, 138, 140);
 }
 .ad {
   width: 312px;
