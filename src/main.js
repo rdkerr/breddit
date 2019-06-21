@@ -6,6 +6,7 @@ import VueClickaway from 'vue-clickaway2'
 import App from './App.vue'
 
 Vue.directive('clickaway', VueClickaway.directive)
+Vue.use(require('vue-moment'))
 
 new Vue({
   el: '#app',
