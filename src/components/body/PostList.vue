@@ -26,76 +26,50 @@
             {{post.postTitle}}
           </h3>
           <div class="details">
-            <span class="bakery">{{post.bakeryName}} •
-</span>
+            <span class="bakery">{{post.bakeryName}}</span>
+            <span> •</span>
             <span>Posted by</span>
             <span>{{post.userName}}</span>
             <span>{{ post.timePosted | moment("from", "now") }}</span>
           </div>
-          <div class="action-bar">
-            <div class="action">
-              <i class="fa fa-comment-alt"></i>
-              {{post.commentsCount}} Comments
-            </div>
-            <div class="action">
-              <i class="fa fa-glass-whiskey"></i>
-              Give Sip
-            </div>
-            <div class="action">
-              <i class="fa fa-share"></i>
-              Share
-            </div>
-            <div class="action">
-              <i class="fa fa-bookmark"></i>
-              Save
-            </div>
-            <div class="action">
-              <i class="fa fa-eye-slash"></i>
-              Hide
-            </div>
-            <div class="action">
-              <i class="fa fa-angry"></i>
-              Report
-            </div>
-          </div>
+          <ActionBar :commentsCount="post.commentsCount"></ActionBar>
         </div>
       </div>
     </div>
-    <div class="sidebar">
-      <div class="ad">SIDEBAR</div>
-
-    </div>
+    <Sidebar></Sidebar>
   </div>
 </template>
 
 <script>
 import samplePosts from '../../post'
+import ActionBar from './ActionBar'
+import Sidebar from './Sidebar'
+
 export default {
   name: 'PostList',
+  components: {
+    ActionBar,
+    Sidebar
+  },
   data() {
     return {
-      posts: samplePosts
+      posts: samplePosts,
+      up: false,
+      down: false,
     }
   }
 }
 </script>
 
 <style scoped>
-.action-bar {
-  height: 36px;
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-}
-.action {
-
-  height: 100%;
-
-}
-.bakery, .action-bar {
+.bakery {
   font-weight: 700;
+  cursor: pointer;
 }
-.details, .action-bar {
+.bakery:hover {
+  text-decoration: underline;
+}
+.details {
   color: rgb(135, 138, 140);
 }
 .fill {
@@ -107,6 +81,7 @@ export default {
   font-family: IBMPlexSans, Arial, sans-serif;
   font-size: 16px;
   margin: 0;
+  padding-bottom: 5px;
 }
 img {
   width: 100%;
@@ -125,6 +100,7 @@ img {
   margin: auto auto;
   text-align: center;
   vertical-align: bottom;
+  cursor: pointer;
 }
 .bread-container:hover {
   background-color: rgba(26, 26, 27, 0.1);
@@ -161,6 +137,7 @@ img {
 }
 .ad {
   width: 312px;
+  background: white;
 }
 .post-body {
   width: 100%;
@@ -192,20 +169,24 @@ img {
   flex-grow: 1;
   height: 100%;
   float: left;
-  padding: 20px 24px;
-
+  padding: 0;
 }
 .sidebar {
   float: left;
-  height: 100%;
+  height: 100vh;
   width: 312px;
   display: none;
   padding: 20px 24px 20px 0px;
-  background: blue;
+  overflow: hidden;
 }
 @media screen and (min-width: 950px) {
   .sidebar {
     display: block;
+  }
+}
+@media screen and (min-width: 650px) {
+  .postList {
+    padding: 20px 24px;
   }
 }
 </style>
