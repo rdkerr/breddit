@@ -87,7 +87,6 @@ export default {
   float: right;
 }
 .text {
-  font-family: IBMPlexSans, Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -102,7 +101,6 @@ export default {
   padding: 10px 24px 8px 24px;
   color: rgb(135, 138, 140);
   display: block;
-  font-family: IBMPlexSans, Arial, sans-serif;
   font-size: 10px;
 }
 .filter {
@@ -177,7 +175,6 @@ input:focus {
   border: 1px solid rgb(237, 239, 241);
 }
 .current-text {
-  font-family: IBMPlexSans, Arial, sans-serif;
   font-size: 14px;
   margin: 10px 0 0 0;
 }

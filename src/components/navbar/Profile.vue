@@ -88,7 +88,6 @@ hr {
   text-align: center;
 }
 .text {
-  font-family: IBMPlexSans, Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -105,7 +104,6 @@ hr {
   padding: 10px 24px 8px 24px;
   color: rgb(135, 138, 140);
   display: block;
-  font-family: IBMPlexSans, Arial, sans-serif;
   font-size: 10px;
 }
 .corners {
@@ -135,7 +133,6 @@ hr {
 }
 .user-name {
   font-size: 14px;
-  font-family: IBMPlexSans, Arial, sans-serif;
   margin: 0 0 0 0;
 }
 .cookies-text {

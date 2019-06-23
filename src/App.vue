@@ -28,5 +28,6 @@ export default {
 body {
   margin: 0;
   min-width: 320px;
+  font-family: IBMPlexSans, Arial, sans-serif;
 }
 </style>

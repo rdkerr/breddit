@@ -2,19 +2,7 @@
   <div class="container">
     <div class="postList">
       <div v-for="post in posts" :key="post.timePosted" class="post-container">
-        <div class="fill">
-          <div class="vote-container">
-            <div class="bread-container">
-              <i class="fa fa-bread-slice bread"></i>
-            </div>
-            <div class="voting">
-              {{post.sipzCount}}
-            </div>
-            <div class="bread-container">
-              <i class="fa fa-bread-slice bot bread fa-rotate-180"></i>
-            </div>
-          </div>
-        </div>
+        <Vote :sipzCount=post.sipzCount></Vote>
         <div v-if="post.postType === 'image'" class="image">
           <img :src="post.imageURL" alt="iamge">
         </div>
@@ -44,12 +32,14 @@
 import samplePosts from '../../post'
 import ActionBar from './ActionBar'
 import Sidebar from './Sidebar'
+import Vote from './Vote'
 
 export default {
   name: 'PostList',
   components: {
     ActionBar,
-    Sidebar
+    Sidebar,
+    Vote
   },
   data() {
     return {
@@ -71,47 +61,16 @@ export default {
 }
 .details {
   color: rgb(135, 138, 140);
-}
-.fill {
-  height: auto;
-  background-color: rgb(246, 247, 248);
+  font-size: 14px;
 }
 .title {
   fill: rgb(135, 138, 140);
-  font-family: IBMPlexSans, Arial, sans-serif;
   font-size: 16px;
   margin: 0;
   padding-bottom: 5px;
 }
 img {
   width: 100%;
-}
-.bread {
-  color: rgb(135, 138, 140);
-  padding-top: 3px;
-}
-.bot {
-  padding: 0 0 3px 0;
-}
-.bread-container {
-  border-radius: 4px;
-  width: 24px;
-  height: 24px;
-  margin: auto auto;
-  text-align: center;
-  vertical-align: bottom;
-  cursor: pointer;
-}
-.bread-container:hover {
-  background-color: rgba(26, 26, 27, 0.1);
-}
-.vote-container {
-  display: flex;
-  height: 100%;
-  width: 40px;
-  height: 80px;
-  flex-direction: column;
-  padding: 8px 4px;
 }
 .image {
   width: 96px;
@@ -141,12 +100,7 @@ img {
 }
 .post-body {
   width: 100%;
-  margin: 8px 8px 8px 0;
-}
-.voting {
-  width: 40px;
-  margin: auto auto;
-  text-align: center;
+  margin: 8px 8px 0 0;
 }
 .post-container {
   width: 100%;

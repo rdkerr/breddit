@@ -58,7 +58,7 @@ export default {
   display: flex;
   flex-direction: row;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 12px;
   color: rgb(135, 138, 140);
 }
 .action-container{
