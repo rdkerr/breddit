@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <div class="sidebar">
       <div class="home-container">
         <i class="fa fa-couch icon"></i>
@@ -24,13 +24,19 @@
         <p>ADVERTISEMENT</p>
         <img src="../../assets/ads/ad (2).jpg" alt="ad 2">
       </div>
+      <Footer></Footer>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Footer from './Footer'
 export default {
-  name: 'Sidebar'
+  name: 'Sidebar',
+  components: {
+    Footer
+  }
 }
 </script>
 
