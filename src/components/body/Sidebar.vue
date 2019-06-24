@@ -125,11 +125,11 @@ img {
   padding: 20px 24px 20px 0px;
   overflow: hidden;
 }
-.container {
+.sidebar {
   display: none;
 }
 @media screen and (min-width: 980px) {
-  .container {
+  .sidebar {
     display: block;
   }
 }

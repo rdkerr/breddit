@@ -125,19 +125,6 @@ img {
   float: left;
   padding: 0;
 }
-.sidebar {
-  float: left;
-  height: 100vh;
-  width: 312px;
-  display: none;
-  padding: 20px 24px 20px 0px;
-  overflow: hidden;
-}
-@media screen and (min-width: 950px) {
-  .sidebar {
-    display: block;
-  }
-}
 @media screen and (min-width: 650px) {
   .postList {
     padding: 20px 24px;

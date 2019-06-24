@@ -10,6 +10,7 @@
 import Banner from './Banner'
 import UtilityBar from '../utilitybar/UtilityBar'
 import PostList from './PostList'
+
 export default {
   name: 'Body',
   components: {

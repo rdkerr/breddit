@@ -2,14 +2,14 @@
   <div>
     <div class="fill">
       <div class="vote-container">
-        <div class="bread-container">
-          <i class="fa fa-bread-slice bread" :class="getVote('up')" :click="state='on'"></i>
+        <div class="bread-container" v-on:click="setState(1)">
+          <i class="fa fa-bread-slice bread" :class="getVote(1)"></i>
         </div>
         <div class="voting">
-          {{sipzCount}}
+          {{sipz}}
         </div>
-        <div class="bread-container">
-          <i class="fa fa-bread-slice bot bread fa-rotate-180" :class="getVote('down')"></i>
+        <div class="bread-container" v-on:click="setState(-1)">
+          <i class="fa fa-bread-slice bot bread fa-rotate-180" :class="getVote(-1)"></i>
         </div>
       </div>
     </div>
@@ -24,15 +24,23 @@ export default {
   },
   data() {
     return {
-      state: 'off'
+      state: 0
+    }
+  },
+  computed: {
+    sipz: function() {
+      return this.$props.sipzCount + this.state === 0 ? '•' : this.$props.sipzCount + this.state
     }
   },
   methods: {
     getVote: function(current) {
       if (current === this.state) {
-        return this.state === 'up' ? 'bread-up' : 'bread-down';
+        return this.state === 1 ? 'bread-up' : 'bread-down';
       }
       return '';
+    },
+    setState: function(newState) {
+      this.state = newState === this.state ? 0 : newState;
     }
   }
 }
