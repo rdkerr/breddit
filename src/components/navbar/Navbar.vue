@@ -1,7 +1,7 @@
 <template>
   <div id="navbar">
     <Brand></Brand>
-    <Dropdown v-on:clicked="toggleDropdown()" :dropdownOpen="dropdownOpen" v-on:updateBakery="updateBakery" :current="current"></Dropdown>
+    <Dropdown v-on:clicked="toggleDropdown()" :dropdownOpen="dropdownOpen"></Dropdown>
     <Search></Search>
     <QuickLaunch></QuickLaunch>
     <Compose></Compose>
@@ -27,9 +27,6 @@ export default {
     Compose,
     Profile
   },
-  props: {
-    current: String
-  },
   data() {
     return {
       'profileOpen': false,
@@ -48,10 +45,6 @@ export default {
         this.profileOpen = false
       }
       this.dropdownOpen = !this.dropdownOpen
-    },
-    updateBakery: function(newBakery) {
-      this.dropdownOpen = false
-      this.$emit('udpate', newBakery)
     }
   }
 }

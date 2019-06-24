@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Navbar :current="current" v-on:update=setCurrent></Navbar>
+    <Navbar></Navbar>
     <div class="body">
-      <Banner v-if="isBakery" :bakeryName=current bakeryIcon='fa-biohazard'></Banner>
+      <Banner v-if="isBakery"></Banner>
       <UtilityBar></UtilityBar>
       <PostList></PostList>
     </div>
@@ -25,19 +25,12 @@ export default {
   },
   computed: {
     isBakery: function() {
-      return this.current.slice(0,2) === 'b/';
+      return this.$store.state.current.slice(0,2) === 'b/';
     }
   },
   data () {
     return {
-      current: 'Home'
-    }
-  },
-  methods: {
-    setCurrent: function(newCurrent) {
-    console.log("TCL: newCurrent", newCurrent)
 
-      this.current = newCurrent;
     }
   }
 }

@@ -1,10 +1,10 @@
 <template>
   <div class="banner">
     <div class="icon-container">
-      <i class="fa icon" :class="bakeryIcon"></i>
+      <i class="fa icon" :class="icon"></i>
     </div>
     <div class="text-container">
-      <div class="text">{{ bakeryName }}</div>
+      <div class="text">{{ current }}</div>
     </div>
   </div>
 </template>
@@ -12,7 +12,14 @@
 <script>
 export default {
   name: 'Banner',
-  props: ['bakeryName', 'bakeryIcon']
+  computed: {
+    current() {
+      return this.$store.state.current
+    },
+    icon() {
+      return this.$store.state.icons[this.$store.state.current]
+    }
+  }
 }
 </script>
 

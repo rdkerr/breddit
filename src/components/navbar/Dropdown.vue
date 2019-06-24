@@ -23,7 +23,7 @@
             class="text"
             v-for="(value,index) in filterFeeds(key)"
             :key="index"
-            v-on:click="$emit('updateBakery', value)"
+            v-on:click="updateCurrent(value)"
           >
             <div class="icon-container">
               <i class="fa icon" :class="icons[value]"></i>
@@ -41,7 +41,15 @@
 <script>
 export default {
   name: 'Dropdown',
-  props: ['dropdownOpen', 'current'],
+  props: ['dropdownOpen'],
+  computed: {
+    current() {
+      return this.$store.state.current;
+    },
+    icons() {
+      return this.$store.state.icons;
+    }
+  },
   data() {
     return {
       filterString: '',
@@ -51,9 +59,6 @@ export default {
         'MY BAKERIES',
         'OTHER'
       ],
-      icons: {
-        'Home': 'fa-couch', 'Popular': 'fa-pepper-hot', 'All': 'fa-shopping-cart', 'Fresh Bread': 'fa-hamburger', 'User Settings': 'fa-ghost', 'Messages': 'fa-envelope', 'Create Toast': 'fa-scroll', 'Create Bakery': 'fa-scroll', 'Sipz': 'fa-glass-whiskey', 'Bro': 'fa-user-ninja', 'b/bred': 'fa-air-freshener', 'b/catBread': 'fa-burn', 'b/JudgeBredd': 'fa-biohazard', 'b/HoneyOat': 'fa-bone', 'b/Sourdough': 'fa-bomb', 'b/wholeWheat': 'fa-bolt'
-      },
       feed: {
         'BREDDIT FEEDS': ['Home', 'Popular', 'All', 'Fresh Bread'],
         'FAVORITES': ['b/JudgeBredd', 'b/Sourdough', 'b/wholeWheat'],
@@ -69,8 +74,9 @@ export default {
         return that.filterString === '' ? true : bread.toLowerCase().includes(that.filterString.toLowerCase());
       })
     },
-    print: function() {
-      console.log('hi')
+    updateCurrent: function(newCurrent) {
+      this.$store.state.current = newCurrent;
+      this.$emit('clicked')
     }
   }
 }
@@ -145,6 +151,7 @@ input:focus {
   float: left;
   width: 40px;
   height: 36px;
+  text-align: center;
 }
 .sort {
   margin: 5px 10px 0 0;
