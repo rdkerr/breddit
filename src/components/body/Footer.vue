@@ -69,4 +69,7 @@ export default {
   border-radius: 4px;
   padding: 12px;
 }
+.footer-text {
+  font-size: 14px;
+}
 </style>

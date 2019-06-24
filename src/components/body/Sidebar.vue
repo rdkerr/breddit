@@ -16,7 +16,7 @@
         <i class="fa fa-user-ninja bro-icon"></i>
         <div class="bro-text">
           <div class="title">Breddit Bro</div>
-          <div>The brest Breddit experience, with monthly Sipz</div>
+          <div class="bro-text">The brest Breddit experience, with monthly Sipz</div>
         </div>
         <div class="try">Try Now</div>
       </div>
@@ -42,6 +42,10 @@ export default {
 <style scoped>
 .title {
   font-weight: 600;
+  font-size: 14px;
+}
+.title-text {
+  font-size: 14px;
 }
 .try {
   background-color: rgb(255, 69, 0);

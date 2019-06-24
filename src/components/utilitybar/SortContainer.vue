@@ -68,6 +68,7 @@ export default {
 @media screen and (min-width: 600px) {
   .text {
     display: block;
+    font-size: 14px;
   }
   .sort-content {
     left: 50px;

@@ -46,7 +46,7 @@ export default {
   flex-direction: row;
 }
 .text {
-  font-size: 16px;
+  font-size: 14px;
   color: rgb(124, 124, 124);
   margin-top: 10px;
   margin-right: 12px;
