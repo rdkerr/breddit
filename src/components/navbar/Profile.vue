@@ -114,12 +114,11 @@ hr {
   cursor: default;
   position: fixed;
   width: 198px;
-  height: 435px;
+  height: 58vh;
   background-color: #fff;
   top: 41px;
   right: 20px;
   z-index: 2;
-  overflow: show;
   border-left: 1px solid rgb(237, 239, 241);
   border-right: 1px solid rgb(237, 239, 241);
   border-bottom: 1px solid rgb(237, 239, 241);

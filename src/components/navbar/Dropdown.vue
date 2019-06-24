@@ -126,19 +126,17 @@ input:focus {
   background-color: white;
 }
 .content {
+  margin-left: 1px;
   cursor: default;
   position: fixed;
   width: 269px;
-  max-height: 482px;
+  max-height: 75vh;
   background-color: #fff;
   top: 41px;
-  overflow: show;
-  border-left: 1px solid rgb(237, 239, 241);
-  border-right: 1px solid rgb(237, 239, 241);
-  border-bottom: 1px solid rgb(237, 239, 241);
+  box-shadow: 0px 1px 0px 1px rgb(237, 239, 241);
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
-  overflow: scroll;
+
   overflow-x: hidden;
   padding-bottom: 15px;
 }
