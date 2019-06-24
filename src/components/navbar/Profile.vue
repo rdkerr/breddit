@@ -1,6 +1,6 @@
 <template>
   <div class="user-dropdown">
-    <div v-on:click="$emit('clicked')">
+    <div v-on:click="$emit('clicked')" :class="profileOpen ? 'container-open' : 'container-close'">
       <div class="icon-container">
         <i class="fa fa-ghost icon"></i>
       </div>
@@ -163,13 +163,22 @@ hr {
 .user-dropdown{
   float: right;
   height: 36px;
-  margin: 7px 20px 0 0;
+  margin-right: 20px;
   cursor: pointer;
+}
+.container-open {
+  border: 1px solid rgb(237, 239, 241);
+  height: 100%;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.container-close {
+  height: 100%;
   border: 1px solid white;
 }
-.user-dropdown:hover {
+.container-close:hover {
+  border-color: rgb(237, 239, 241);
   border-radius: 4px;
-  border: 1px solid rgb(237, 239, 241);
 }
 .icon {
   color: rgb(135, 138, 140);

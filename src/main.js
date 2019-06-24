@@ -1,6 +1,5 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable semi */
-/* eslint-disable linebreak-style */
 import Vue from 'Vue'
 import VueClickaway from 'vue-clickaway2'
 import VueRouter from 'vue-router'

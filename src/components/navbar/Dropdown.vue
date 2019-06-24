@@ -1,6 +1,6 @@
 <template>
-  <div class="nav-dropdown" :class="dropdownOpen ? 'corners' : ''">
-    <div v-on:click="$emit('clicked')">
+  <div class="nav-dropdown">
+    <div v-on:click="$emit('clicked')" :class="dropdownOpen ? 'container-open' : 'container-close'">
       <div class="main-icon-container">
         <i class="fa main-icon" :class=icons[current]></i>
       </div>
@@ -125,18 +125,13 @@ input:focus {
   outline-width: 0;
   background-color: white;
 }
-.corners {
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
 .content {
   cursor: default;
   position: fixed;
-  width: 268px;
+  width: 269px;
   max-height: 482px;
   background-color: #fff;
   top: 41px;
-  left: 60px;
   overflow: show;
   border-left: 1px solid rgb(237, 239, 241);
   border-right: 1px solid rgb(237, 239, 241);
@@ -174,11 +169,6 @@ input:focus {
   height: 35px;
   margin: 0 10px 0 0;
   cursor: pointer;
-  border: 1px solid white;
-}
-.nav-dropdown:hover {
-  border-radius: 4px;
-  border: 1px solid rgb(237, 239, 241);
 }
 .current-text {
   font-size: 14px;
@@ -201,6 +191,20 @@ input:focus {
 }
 .disabled {
   color: rgb(223, 222, 222);
+}
+.container-open {
+  border: 1px solid rgb(237, 239, 241);
+  height: 100%;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.container-close {
+  height: 100%;
+  border: 1px solid white;
+}
+.container-close:hover {
+  border-color: rgb(237, 239, 241);
+  border-radius: 4px;
 }
 @media screen and (min-width: 1070px) {
   .content {
