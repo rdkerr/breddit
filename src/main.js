@@ -4,7 +4,7 @@
 import Vue from 'Vue'
 import VueClickaway from 'vue-clickaway2'
 import App from './App.vue'
-import { store } from './store/store'
+import {store} from './store/store'
 
 Vue.directive('clickaway', VueClickaway.directive)
 Vue.use(require('vue-moment'))

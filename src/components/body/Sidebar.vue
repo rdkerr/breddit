@@ -25,7 +25,6 @@
         <img src="../../assets/ads/ad (2).jpg" alt="ad 2">
       </div>
       <Footer></Footer>
-      </div>
     </div>
   </div>
 </template>
