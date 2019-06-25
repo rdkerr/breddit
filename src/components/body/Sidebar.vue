@@ -30,6 +30,7 @@
 </template>
 
 <script>
+// TODO: Sticky button and footer
 import Footer from './Footer'
 export default {
   name: 'Sidebar',

@@ -2,16 +2,16 @@
   <div class="container">
     <div class="text">VIEW</div>
     <div class="button-container">
-      <div class="button" v-on:click="getView('Card')" :class="getActive('Card') ? 'inactive' : ''">
+      <div class="button" v-on:click="updateView('Card')" :class="getActive('Card')">
         <div class="half"></div>
         <div class="half"></div>
       </div>
-      <div class="button" v-on:click="getView('Classic')" :class="getActive('Classic') ? 'inactive' : ''">
+      <div class="button" v-on:click="updateView('Classic')" :class="getActive('Classic')">
         <div class="third"></div>
         <div class="third"></div>
         <div class="third"></div>
       </div>
-      <div class="button" v-on:click="getView('Compact')" :class="getActive('Compact') ? 'inactive' : ''">
+      <div class="button" v-on:click="updateView('Compact')" :class="getActive('Compact')">
         <div class="fourth"></div>
         <div class="fourth"></div>
         <div class="fourth"></div>
@@ -24,17 +24,15 @@
 <script>
 export default {
   name: 'ViewSelector',
-  data() {
-    return {
-      active: 'Classic'
-    }
+  computed: {
+
   },
   methods: {
-    getView: function(newActive) {
-      this.active = newActive
+    updateView: function(newView) {
+      this.$store.state.view = newView;
     },
     getActive: function(current) {
-      return current !== this.active
+      return current !== this.$store.state.view ? 'inactive' : '';
     }
   }
 }

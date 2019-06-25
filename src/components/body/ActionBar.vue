@@ -4,37 +4,13 @@
       <div class="action-container">
         <div class="action">
           <i class="icon fa fa-comment-alt"></i>
-          {{commentsCount}} Comments
+          {{commentsCount}} <span v-if="type != 'Compact'">Comments</span>
         </div>
       </div>
-      <div class="action-container">
+      <div v-if="type != 'Compact'" v-for="key in keys" class="action-container" :key=key>
         <div class="action">
-          <i class="icon fa fa-glass-whiskey"></i>
-          Give Sip
-        </div>
-      </div>
-      <div class="action-container">
-        <div class="action">
-          <i class="icon fa fa-share"></i>
-          Share
-        </div>
-      </div>
-      <div class="action-container">
-        <div class="action">
-          <i class="icon fa fa-bookmark"></i>
-          Save
-        </div>
-      </div>
-      <div class="action-container">
-        <div class="action">
-          <i class="icon fa fa-eye-slash"></i>
-          Hide
-        </div>
-      </div>
-      <div class="action-container">
-        <div class="action">
-          <i class="icon fa fa-angry"></i>
-          Report
+          <i class="icon fa " :class=icons[key]></i>
+          {{key}}
         </div>
       </div>
     </div>
@@ -44,8 +20,20 @@
 <script>
 export default {
   name: 'ActionBar',
+  computed: {
+    icons() {
+      return this.$store.state.icons;
+    }
+  },
   props: {
-    commentsCount: Number
+    commentsCount: Number,
+    type: String
+  },
+  data() {
+    return {
+      keys: ['Give Sip', 'Share', 'Save', 'Hide', 'Report'
+      ]
+    }
   }
 }
 </script>
@@ -60,6 +48,7 @@ export default {
   font-weight: 700;
   font-size: 12px;
   color: rgb(135, 138, 140);
+  margin-left: 5px;
 }
 .action-container{
   height: 24px;

@@ -68,6 +68,8 @@ export default {
   background: white;
   border-radius: 4px;
   padding: 12px;
+  position: sticky;
+  bottom: 100px;
 }
 .footer-text {
   font-size: 14px;

@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <div class="fill">
-      <div class="vote-container">
+  <div class="fill">
+      <div :class="align == 'horizontal' ? 'horizontal-container' : 'vote-container'">
         <div class="bread-container" v-on:click="setState(1)">
           <i class="fa fa-bread-slice bread" :class="getVote(1)"></i>
         </div>
@@ -12,7 +11,6 @@
           <i class="fa fa-bread-slice bot bread fa-rotate-180" :class="getVote(-1)"></i>
         </div>
       </div>
-    </div>
   </div>
 </template>
 
@@ -20,7 +18,8 @@
 export default {
   name: 'Vote',
   props: {
-    sipzCount: Number
+    sipzCount: Number,
+    align: String
   },
   data() {
     return {
@@ -48,7 +47,6 @@ export default {
 
 <style scoped>
 .fill {
-  height: 100%;
   background-color: rgb(246, 247, 248);
 }
 .bread {
@@ -70,7 +68,7 @@ export default {
   height: 24px;
   margin: auto auto;
   text-align: center;
-  vertical-align: bottom;
+  align-items: center;
   cursor: pointer;
 }
 .bread-container:hover {
@@ -83,9 +81,16 @@ export default {
   height: 80px;
   flex-direction: column;
   padding: 8px 4px;
+  font-size: 14px;
+}
+.horizontal-container {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 4px;
+  font-size: 12px;
 }
 .voting {
-  width: 40px;
+  min-width: 40px;
   margin: auto auto;
   text-align: center;
 }
