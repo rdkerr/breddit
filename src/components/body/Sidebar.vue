@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="sidebar">
-      <div class="home-container">
-        <i class="fa fa-couch icon"></i>
-        <span class="home">Home</span>
-        <div class="text">Your personal Breddit frontpage.  Come here to check in with your favorite communities.</div>
+      <div class="bakery-container">
+        <i class="fa icon" :class=icon></i>
+        <span class="bakery">{{text}}</span>
+        <div class="text">{{description}}</div>
         <div class="button post">CREATE POST</div>
         <div class="button community">CREATE COMMUNITY</div>
       </div>
@@ -36,6 +36,17 @@ export default {
   name: 'Sidebar',
   components: {
     Footer
+  },
+  computed: {
+    icon() {
+      return this.$store.state.icons[this.$store.state.current];
+    },
+    text() {
+      return this.$store.state.current;
+    },
+    description() {
+      return this.$store.state.descriptions[this.$store.state.current];
+    }
   }
 }
 </script>
@@ -63,7 +74,7 @@ export default {
 p {
   margin: 0 0 5px 0;
 }
-.home {
+.bakery {
   font-weight: 600;
   font-size: 18px;
 }
@@ -107,7 +118,7 @@ img {
   color: #0079d3;
   border: 1px #0079d3 solid;
 }
-.home-container, .bro-container {
+.bakery-container, .bro-container {
   background: white;
   border-radius: 4px;
   padding: 12px;
