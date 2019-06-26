@@ -11,9 +11,9 @@
 
 <script>
 import Navbar from "./components/navbar/Navbar"
-import Banner from './components/banner/Banner'
+import Banner from './components/body/Banner'
 import UtilityBar from './components/utilitybar/UtilityBar'
-import PostList from './components/post/PostList'
+import PostList from './components/body/PostList'
 
 export default {
   name: 'app',

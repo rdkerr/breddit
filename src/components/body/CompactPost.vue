@@ -76,7 +76,7 @@ img {
   height: 58px;
   margin: 8px 8px auto 8px;
   border-radius: 4px;
-  border: 1px solid rgb(237, 239, 241);
+  border: 1px solid rgb(237, 239, 241);;
   overflow: hidden;
 }
 .placeholder {
