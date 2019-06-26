@@ -13,7 +13,7 @@
 
 <script>
 import samplePosts from '../../post'
-import Sidebar from './Sidebar'
+import Sidebar from '../sidebar/Sidebar'
 import CardPost from './CardPost'
 import ClassicPost from './ClassicPost'
 import CompactPost from './CompactPost'

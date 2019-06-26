@@ -31,7 +31,8 @@ export default {
   },
   data() {
     return {
-      keys: ['Give Sip', 'Share', 'Save', 'Hide', 'Report'
+      keys: [
+        'Give Sip', 'Share', 'Save', 'Hide', 'Report'
       ]
     }
   }
