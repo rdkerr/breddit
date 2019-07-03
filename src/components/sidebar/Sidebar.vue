@@ -10,7 +10,7 @@
       </div>
       <div class="ad">
         <p>ADVERTISEMENT</p>
-        <img src="../../assets/ads/ad (3).jpg" alt="ad 1">
+        <img src="../../assets/ads/ad (1).jpg" alt="ad 1">
       </div>
       <div class="bro-container">
         <i class="fa fa-user-ninja bro-icon"></i>

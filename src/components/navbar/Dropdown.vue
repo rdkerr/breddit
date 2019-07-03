@@ -1,5 +1,6 @@
 <template>
   <div class="nav-dropdown">
+    <!-- TODO: :click to @click  -->
     <div v-on:click="$emit('clicked')" :class="dropdownOpen ? 'container-open' : 'container-close'">
       <div class="main-icon-container">
         <i class="fa main-icon" :class=icons[current]></i>
