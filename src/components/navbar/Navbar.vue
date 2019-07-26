@@ -1,12 +1,12 @@
 <template>
-  <div id="navbar">
+  <nav>
     <Brand></Brand>
     <Dropdown v-on:clicked="toggleDropdown()" :dropdownOpen="dropdownOpen"></Dropdown>
     <Search></Search>
     <QuickLaunch></QuickLaunch>
     <Compose></Compose>
     <Profile v-on:clicked="toggleProfile()" :profileOpen="profileOpen"></Profile>
-  </div>
+  </nav>
 </template>
 
 <script>
@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style scoped>
-#navbar {
+nav {
   top: 0;
   height: 48px;
   position: fixed;
@@ -60,8 +60,10 @@ export default {
   border-bottom-width: 1px;
   align-items: center;
   display: flex;
-  width: 100%;
+  width: calc(100% - 40px);
   overflow: hidden;
   z-index: 20;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 </style>
