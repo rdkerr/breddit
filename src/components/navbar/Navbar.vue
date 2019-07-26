@@ -1,11 +1,11 @@
 <template>
   <nav>
     <Brand></Brand>
-    <Dropdown v-on:clicked="toggleDropdown()" :dropdownOpen="dropdownOpen"></Dropdown>
+    <Dropdown @clicked="toggleDropdown()" :dropdownOpen="dropdownOpen"></Dropdown>
     <Search></Search>
     <QuickLaunch></QuickLaunch>
     <Compose></Compose>
-    <Profile v-on:clicked="toggleProfile()" :profileOpen="profileOpen"></Profile>
+    <Profile @clicked="toggleProfile()" :profileOpen="profileOpen"></Profile>
   </nav>
 </template>
 
