@@ -29,7 +29,6 @@ export default {
 .brand-i {
   color: rgb(255, 69, 0);
   position: relative;
-
 }
 .brand-i:before {
   content: "ı";
