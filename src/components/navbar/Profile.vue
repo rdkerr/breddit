@@ -162,7 +162,6 @@ hr {
 .user-dropdown{
   float: right;
   height: 36px;
-  margin-right: 20px;
   cursor: pointer;
 }
 .container-open {
