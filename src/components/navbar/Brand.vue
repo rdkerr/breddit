@@ -1,10 +1,8 @@
 <template>
-  <div class="home">
-    <img src="../../assets/breddit_logo.png" class="logo">
-    <div class="logo-text">
-      <p class="text">bredd<span class="i">i</span>t</p>
-    </div>
-  </div>
+  <a href="#">
+    <img src="../../assets/breddit_logo.png" class="brand-logo">
+    <p class="text">bredd<span class="brand-i">i</span>t</p>
+  </a>
 </template>
 
 <script>
@@ -14,40 +12,34 @@ export default {
 </script>
 
 <style scoped>
-.home {
-  cursor: pointer;
-  margin-left: 20px;
-}
-.logo {
+.brand-logo {
   height: 32px;
   width: 32px;
   padding: 8px 8px 8px 0;
   float: left;
 }
-.logo-text {
-  float: left;
-}
 .text {
+  float: left;
   font-size: 24px;
   font-weight: 525;
   letter-spacing: -1px;
   margin: 12px 20px 8px 0;
   display: none;
 }
-@media screen and (min-width: 1070px) {
-  .text {
-    display: block;
-  }
-}
-.i {
+.brand-i {
   color: rgb(255, 69, 0);
   position: relative;
 
 }
-.i:before {
+.brand-i:before {
   content: "ı";
   position: absolute;
   color: black;
   left: -1px;
+}
+@media screen and (min-width: 1070px) {
+  .text {
+    display: block;
+  }
 }
 </style>
