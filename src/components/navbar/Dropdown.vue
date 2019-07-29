@@ -1,18 +1,11 @@
 <template>
   <div class="nav-dropdown">
-    <!-- TODO: :click to @click  -->
-    <div @click="$emit('clicked')" :class="dropdownOpen ? 'container-open' : 'container-close'">
-      <div class="main-icon-container">
-        <i class="fa main-icon" :class=icons[current]></i>
-      </div>
-      <div class="current-text-container">
-        <p class="current-text">{{ current }}</p>
-      </div>
-      <div class="sort-container">
-        <i class="fa fa-sort-down sort"></i>
-      </div>
-    </div>
-    <div v-if="dropdownOpen" v-clickaway="() => $emit('clicked')" class="content">
+    <button @click="$emit('clicked')" :class="dropdownOpen ? 'container-open' : 'container-close'">
+      <i class="fa main-icon" :class=icons[current]></i>
+      <p class="current-text">{{ current }}</p>
+      <i class="fa fa-sort-down sort"></i>
+    </button>
+    <div  v-if="dropdownOpen" v-clickaway="() => $emit('clicked')" class="content">
       <input
         v-bind:value="filterString"
         @input="filterString = $event.target.value" placeholder="Filter"
@@ -20,20 +13,18 @@
       >
       <div v-for="key in keys" :key="key">
         <div class="category" v-if="filterFeeds(key).length > 0">{{ key }}</div>
-          <div
-            class="text"
-            v-for="(value,index) in filterFeeds(key)"
-            :key="index"
-            @click="updateCurrent(value)"
-          >
-            <div class="icon-container">
-              <i class="fa icon" :class="icons[value]"></i>
-            </div>
-            {{value}}
-            <i v-if="key == keys[1]" class="fa fa-flag icon right" @click.stop="feed[keys[1]].splice(index,1)"></i>
-            <i v-else-if="key == keys[2] && feed[keys[1]].includes(value)" class="fa fa-flag icon right" @click.stop="feed[keys[1]].splice(feed[keys[1]].indexOf(value),1)"></i>
-            <i v-else-if="key == keys[2]" class="fa fa-flag icon right disabled" @click.stop="feed[keys[1]].push(value)"></i>
-          </div>
+        <a class="text"
+          v-for="(value,index) in filterFeeds(key)"
+          :key="index"
+          :href="value"
+          @click="updateCurrent(value)"
+        >
+          <i class="fa icon" :class="icons[value]"></i>
+          <p class="bakery-name">{{value}}</p>
+          <i v-if="key == keys[1]" class="fa fa-flag icon right" @click.stop="feed[keys[1]].splice(index,1)"></i>
+          <i v-else-if="key == keys[2] && feed[keys[1]].includes(value)" class="fa fa-flag icon right" @click.stop="feed[keys[1]].splice(feed[keys[1]].indexOf(value),1)"></i>
+          <i v-else-if="key == keys[2]" class="fa fa-flag icon right disabled" @click.stop="feed[keys[1]].push(value)"></i>
+        </a>
       </div>
     </div>
   </div>
@@ -84,10 +75,19 @@ export default {
 </script>
 
 <style scoped>
-.icon-container {
-  width: 40px;
-  display: inline-block;
-  text-align: center;
+.nav-dropdown{
+  height: 35px;
+  margin: 0 10px 0 0;
+}
+.bakery-name {
+  margin: 0;
+  padding-top: 6px;
+  width: 100%;
+}
+button {
+  outline: none;
+  background: white;
+  cursor: pointer;
 }
 .right {
   float: right;
@@ -98,10 +98,12 @@ export default {
   line-height: 18px;
   color: rgb(28, 28, 28);
   padding: 0 10px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
 }
 .text:hover{
   background-color: rgb(246, 247, 248);
-  cursor: pointer;
 }
 .category {
   padding: 10px 24px 8px 24px;
@@ -128,7 +130,6 @@ input:focus {
 }
 .content {
   margin-left: 1px;
-  cursor: default;
   position: fixed;
   width: 269px;
   max-height: 75vh;
@@ -137,51 +138,42 @@ input:focus {
   box-shadow: 0px 1px 0px 1px rgb(237, 239, 241);
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
-
   overflow-x: hidden;
   padding-bottom: 15px;
 }
-.main-icon-container {
+.main-icon {
   float: left;
   width: 40px;
   height: 36px;
-  text-align: center;
+  color: #0079d3;
+  font-size: 22px;
+  padding-top: 6px;
 }
 .sort {
   margin: 5px 10px 0 0;
-}
-.sort-container {
-  width: 56px;
+  width: 45px;
   height: 36px;
   float: left;
   text-align: right;
   display: none;
 }
-.current-text-container {
-  float: left;
-  justify-content: center;
-  width: 172px;
-  height: 36px;
-  display: none;
-}
-.nav-dropdown{
-  height: 35px;
-  margin: 0 10px 0 0;
-  cursor: pointer;
-}
 .current-text {
+  float: left;
+  text-align: left;
+  width: 162px;
+  height: 36px;
+  line-height: 18px;
+  display: none;
   font-size: 14px;
   margin: 10px 0 0 0;
-}
-.main-icon {
-  color: #0079d3;
-  font-size: 22px;
-  padding: 6px;
 }
 .icon {
   color: #0079d3;
   font-size: 20px;
   padding: 5px;
+  width: 40px;
+  display: inline-block;
+  text-align: center;
 }
 .sub-icon {
   color: #0079d3;
@@ -211,12 +203,12 @@ input:focus {
   }
 }
 @media screen and (min-width: 996px) {
-  .current-text-container {
+  .current-text {
     display: block;
   }
 }
 @media screen and (min-width: 450px) {
-  .sort-container {
+  .sort {
     display: block;
   }
 }
