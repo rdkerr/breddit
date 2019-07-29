@@ -1,11 +1,7 @@
 <template>
   <div class="banner">
-    <div class="icon-container">
-      <i class="fa icon" :class="icon"></i>
-    </div>
-    <div class="text-container">
-      <div class="text">{{ current }}</div>
-    </div>
+    <i class="fa icon" :class="icon"></i>
+    <h1 class="text">{{ current }}</h1>
   </div>
 </template>
 
@@ -26,19 +22,15 @@ export default {
 <style scoped>
 .text {
   font-size: 3rem;
-}
-.text-container {
   display: block;
   margin: auto 0;
 }
-.icon-container {
+.icon {
   display: block;
   width: 60px;
   margin: auto 0;
   padding-left: 20px;
   padding-right: 5px;
-}
-.icon {
   color: #000;
   font-size: 40px;
 }
