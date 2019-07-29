@@ -2,7 +2,7 @@
   <div class="nav-dropdown">
     <button @click="$emit('clicked')" :class="dropdownOpen ? 'container-open' : 'container-close'">
       <i class="fa main-icon" :class=icons[current]></i>
-      <p class="current-text">{{ current }}</p>
+      <h4 class="current-text">{{ current }}</h4>
       <i class="fa fa-sort-down sort"></i>
     </button>
     <div  v-if="dropdownOpen" v-clickaway="() => $emit('clicked')" class="content">

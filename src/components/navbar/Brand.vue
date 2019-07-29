@@ -1,7 +1,7 @@
 <template>
   <a href="#">
     <img src="../../assets/breddit_logo.png" class="brand-logo">
-    <p class="text">bredd<span class="brand-i">i</span>t</p>
+    <h1 class="text">bredd<span class="brand-i">i</span>t</h1>
   </a>
 </template>
 
