@@ -16,7 +16,7 @@
         <a class="text"
           v-for="(value,index) in filterFeeds(key)"
           :key="index"
-          href="/" + value
+          :href="value"
           @click="updateCurrent(value)"
         >
           <i class="fa icon" :class="icons[value]"></i>
