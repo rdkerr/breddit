@@ -16,14 +16,16 @@
         <a class="text"
           v-for="(value,index) in filterFeeds(key)"
           :key="index"
-          :href="value"
+          href="#"
           @click="updateCurrent(value)"
         >
           <i class="fa icon" :class="icons[value]"></i>
           <p class="bakery-name">{{value}}</p>
-          <i v-if="key == keys[1]" class="fa fa-flag icon" @click.stop="feed[keys[1]].splice(index,1)"></i>
-          <i v-else-if="key == keys[2] && feed[keys[1]].includes(value)" class="fa fa-flag icon" @click.stop="feed[keys[1]].splice(feed[keys[1]].indexOf(value),1)"></i>
-          <i v-else-if="key == keys[2]" class="fa fa-flag icon disabled" @click.stop="feed[keys[1]].push(value)"></i>
+          <button class="flag" @click.prevent="toggle(key, value, index)" @click.stop="">
+            <i v-if="key == keys[1]" class="fa fa-flag icon" ></i>
+            <i v-else-if="key == keys[2] && feed[keys[1]].includes(value)" class="fa fa-flag icon"></i>
+            <i v-else-if="key == keys[2]" class="fa fa-flag icon disabled"></i>
+          </button>
         </a>
       </div>
     </div>
@@ -68,13 +70,31 @@ export default {
     },
     updateCurrent: function(newCurrent) {
       this.$store.state.current = newCurrent;
-      this.$emit('clicked')
+      this.$emit('clicked');
+    },
+    toggle: function(type, value, index) {
+      console.log(type, value, index);
+
+      if (type === this.keys[1]) {
+        this.feed[this.keys[1]].splice(index,1);
+      } else {
+        if (this.feed[this.keys[1]].includes(value)) {
+          this.feed[this.keys[1]].splice(this.feed[this.keys[1]].indexOf(value),1)
+        } else {
+          this.feed[this.keys[1]].push(value)
+        }
+      }
     }
   }
 }
 </script>
 
 <style scoped>
+.flag {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
 .nav-dropdown{
   height: 35px;
   margin: 0 10px 0 0;
