@@ -16,14 +16,14 @@
         <a class="text"
           v-for="(value,index) in filterFeeds(key)"
           :key="index"
-          :href="value"
+          href="/" + value
           @click="updateCurrent(value)"
         >
           <i class="fa icon" :class="icons[value]"></i>
           <p class="bakery-name">{{value}}</p>
-          <i v-if="key == keys[1]" class="fa fa-flag icon right" @click.stop="feed[keys[1]].splice(index,1)"></i>
-          <i v-else-if="key == keys[2] && feed[keys[1]].includes(value)" class="fa fa-flag icon right" @click.stop="feed[keys[1]].splice(feed[keys[1]].indexOf(value),1)"></i>
-          <i v-else-if="key == keys[2]" class="fa fa-flag icon right disabled" @click.stop="feed[keys[1]].push(value)"></i>
+          <i v-if="key == keys[1]" class="fa fa-flag icon" @click.stop="feed[keys[1]].splice(index,1)"></i>
+          <i v-else-if="key == keys[2] && feed[keys[1]].includes(value)" class="fa fa-flag icon" @click.stop="feed[keys[1]].splice(feed[keys[1]].indexOf(value),1)"></i>
+          <i v-else-if="key == keys[2]" class="fa fa-flag icon disabled" @click.stop="feed[keys[1]].push(value)"></i>
         </a>
       </div>
     </div>
@@ -88,9 +88,6 @@ button {
   outline: none;
   background: white;
   cursor: pointer;
-}
-.right {
-  float: right;
 }
 .text {
   font-size: 14px;
