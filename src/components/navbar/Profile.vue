@@ -1,38 +1,32 @@
 <template>
   <div class="user-dropdown">
-    <div v-on:click="$emit('clicked')" :class="profileOpen ? 'container-open' : 'container-close'">
-      <div class="icon-container">
-        <i class="fa fa-ghost icon"></i>
-      </div>
+    <button v-on:click="$emit('clicked')" :class="profileOpen ? 'container-open' : 'container-close'">
+      <i class="fa fa-ghost icon"></i>
       <div class="text-container">
-        <p class="user-name">username</p>
-        <p class="user-name cookies-text"><span><i class="fa fa-glass-cheers whiskey"></i></span>123 cheerz</p>
+        <h4 class="user-name">username</h4>
+        <h5 class="user-name cheerz-text"><span><i class="fa fa-glass-cheers whiskey"></i></span>123 cheerz</h5>
       </div>
-      <div class="sort-container">
-        <i class="fa fa-sort-down sort"></i>
-      </div>
-    </div>
+      <i class="fa fa-sort-down sort"></i>
+    </button>
     <div v-if="profileOpen" v-clickaway="() => $emit('clicked')" class="content">
       <div v-for="key in keys" :key="key">
-      <div class="category">{{ key }}</div>
-        <div
+        <div class="category">{{ key }}</div>
+        <a
           class="text"
           v-for="(value,index) in feed[key]"
           :key="index"
+          href="#"
         >
-          <div class="icon-container">
-            <i class="fa item-icon" :class="icons[value]"></i>
-          </div>
-          <div class='item-text'>{{value}}</div>
+          <i class="fa item-icon" :class="icons[value]"></i>
+          <p class='item-text'>{{value}}</p>
           <i v-if="value == 'Night Mode'" class="fa item-icon right" :class="night ? icons['off'] : icons['on']" v-on:click="night = !night"></i>
-        </div>
+        </a>
       </div>
       <hr>
-      <div class="log-out">
-      <div class="icon-container pad">
+      <div class="text">
         <i class="fa item-icon" :class="icons['Log Out']"></i>
+        <p class='item-text'>Log Out</p>
       </div>
-      <div class='item-text'>Log Out</div></div>
     </div>
   </div>
 </template>
@@ -63,29 +57,26 @@ export default {
 </script>
 
 <style scoped>
+button {
+  outline: none;
+  background: white;
+  cursor: pointer;
+}
 .right {
   float: right;
-}
-.log-out {
-  height: 40px;
 }
 hr {
   width: 85%;
   border-color: rgb(220, 222, 223);
   border-style: solid;
-}
-.pad {
-  padding-left: 8px;
+  background-color: rgb(220, 222, 223);
 }
 .item-text {
   padding: 5px 0 0 5px;
   display: inline-block;
   height: 100%;
-}
-.icon-container {
-  width: 40px;
-  display: inline-block;
-  text-align: center;
+  width: 100%;
+  margin: 0;
 }
 .text {
   font-size: 14px;
@@ -94,7 +85,10 @@ hr {
   color: rgb(28, 28, 28);
   padding: 0 10px;
   margin-top: 0;
-  height: 40px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2px;
 }
 .text:hover, .log-out:hover {
   background-color: rgb(246, 247, 248);
@@ -114,7 +108,7 @@ hr {
   cursor: default;
   position: fixed;
   width: 198px;
-  height: 58vh;
+  height: 52vh;
   background-color: #fff;
   top: 41px;
   right: 20px;
@@ -132,20 +126,14 @@ hr {
 }
 .user-name {
   font-size: 14px;
-  margin: 0 0 0 0;
-}
-.cookies-text {
-  color: #A8AAAB;
-}
-.icon-container {
+  margin: 0;
   float: left;
-  width: 32px;
-  height: 36px;
+}
+.cheerz-text {
+  color: #A8AAAB;
 }
 .sort {
   margin: 5px 10px 0 0;
-}
-.sort-container {
   width: 26px;
   height: 36px;
   float: left;
@@ -154,8 +142,7 @@ hr {
 }
 .text-container {
   float: left;
-  justify-content: center;
-  width: 140px;
+  width: 118px;
   height: 36px;
   display: none;
 }
@@ -179,6 +166,10 @@ hr {
   border-radius: 4px;
 }
 .icon {
+  float: left;
+
+  width: 32px;
+  height: 36px;
   color: rgb(135, 138, 140);
   font-size: 22px;
   align-items: center;
@@ -195,7 +186,7 @@ hr {
   }
 }
 @media screen and (min-width: 450px) {
-  .sort-container {
+  .sort {
     display: block;
   }
 }
