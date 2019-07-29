@@ -1,6 +1,6 @@
 <template>
   <div class="user-dropdown">
-    <button v-on:click="$emit('clicked')" :class="profileOpen ? 'container-open' : 'container-close'">
+    <button @click="$emit('clicked')" :class="profileOpen ? 'container-open' : 'container-close'">
       <i class="fa fa-ghost icon"></i>
       <div class="text-container">
         <h4 class="user-name">username</h4>
@@ -19,14 +19,14 @@
         >
           <i class="fa item-icon" :class="icons[value]"></i>
           <p class='item-text'>{{value}}</p>
-          <i v-if="value == 'Night Mode'" class="fa item-icon right" :class="night ? icons['off'] : icons['on']" v-on:click="night = !night"></i>
+          <i v-if="value == 'Night Mode'" class="fa item-icon right" :class="night ? icons['off'] : icons['on']" @click.prevent="night = !night"></i>
         </a>
       </div>
       <hr>
-      <div class="text">
+      <a href="#" class="text">
         <i class="fa item-icon" :class="icons['Log Out']"></i>
         <p class='item-text'>Log Out</p>
-      </div>
+      </a>
     </div>
   </div>
 </template>
@@ -90,7 +90,7 @@ hr {
   flex-direction: row;
   margin-bottom: 2px;
 }
-.text:hover, .log-out:hover {
+.text:hover {
   background-color: rgb(246, 247, 248);
   cursor: pointer;
 }
@@ -167,7 +167,6 @@ hr {
 }
 .icon {
   float: left;
-
   width: 32px;
   height: 36px;
   color: rgb(135, 138, 140);
