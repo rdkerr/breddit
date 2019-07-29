@@ -1,16 +1,14 @@
 <template>
-  <div>
-    <div class="compose">
-      <div class="icon-container">
-        <i class="fa fa-comment-dots icon"></i>
-      </div>
-      <div class="icon-container">
-        <i class="fa fa-envelope icon"></i>
-      </div>
-      <div class="icon-container">
-        <i class="fa fa-scroll blue icon"></i>
-      </div>
-    </div>
+  <div class="compose">
+    <a href="#">
+      <i class="fa fa-comment-dots icon"></i>
+    </a>
+    <a href="#">
+      <i class="fa fa-envelope icon"></i>
+    </a>
+    <a href="#">
+      <i class="fa fa-scroll blue icon"></i>
+    </a>
   </div>
 </template>
 
@@ -30,16 +28,14 @@ export default {
   font-size: 16px;
   vertical-align: middle;
   line-height: 36px;
-}
-.icon-container {
-  cursor: pointer;
   display: inline-block;
   width: 32px;
   height: 32px;
   border-radius: 4px;
   text-align: center;
+  color: black;
 }
-.icon-container:hover {
+.icon:hover {
   background-color: rgba(26, 26, 27, 0.1);
 }
 .blue {

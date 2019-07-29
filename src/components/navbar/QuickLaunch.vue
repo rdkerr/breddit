@@ -36,7 +36,7 @@ export default {
   text-align: center;
   color: black;
 }
-.icon-container:hover {
+.icon:hover {
   background-color: rgba(26, 26, 27, 0.1);
 }
 @media screen and (min-width: 800px) {
