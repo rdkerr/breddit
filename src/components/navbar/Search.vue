@@ -1,5 +1,6 @@
 <template>
   <div class="search">
+    <label for="search-text-input"></label>
     <input type='text' placeholder='Search Breddit' id='search-text-input' />
     <i class="mag fa fa-search"></i>
   </div>
@@ -13,7 +14,7 @@ export default {
 
 <style scoped>
 .search {
-  height: 38px;
+  height: 34px;
   flex-grow: 1;
   margin-right: 5px;
 }
@@ -21,7 +22,7 @@ input {
   border-radius: 4px;
   border: 1px solid rgb(237, 239, 241);
   background-color: rgb(246, 247, 248);
-  height: 32px;
+  height: 30px;
   margin-top: 0px;
   padding-left: 35px;
   width: calc(100% - 35px);
