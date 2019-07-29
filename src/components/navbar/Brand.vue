@@ -25,6 +25,7 @@ export default {
   letter-spacing: -1px;
   margin: 12px 20px 8px 0;
   display: none;
+  color: #000;
 }
 .brand-i {
   color: rgb(255, 69, 0);
