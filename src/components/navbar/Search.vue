@@ -36,7 +36,7 @@ input:focus {
   position: relative;
   color: rgb(135, 138, 140);
   font-size: 16px;
-  top: -28px;
+  top: -24px;
   left: 10px;
 }
 
