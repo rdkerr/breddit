@@ -69,7 +69,8 @@ export default {
   border-radius: 4px;
   padding: 12px;
   position: sticky;
-  bottom: 100px;
+  top: 1rem;
+  align-self: flex-start;
 }
 .footer-text {
   font-size: 14px;

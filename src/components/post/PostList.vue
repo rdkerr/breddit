@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div id="container">
     <div class="postList">
       <div v-for="post in posts" :key="post.timePosted">
         <ClassicPost v-if="view == 'Classic'" :post=post></ClassicPost>
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+#container {
   height: 100%;
   background: #DAE0E6;
   width: 100%;

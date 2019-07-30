@@ -32,7 +32,26 @@ export default {
     return {
 
     }
-  }
+  },
+  methods: {
+    handleScroll(e) {
+      const top = document.getElementsByClassName('top')[0];
+      if (e.srcElement.scrollTop > 1500) {
+        document.getElementsByClassName('top')[0].style.display = 'block';
+      } else {
+        document.getElementsByClassName('top')[0].style.display = 'none';
+      }
+    }
+  },
+  mounted() {
+    // const top = document.getElementsByClassName('body')[0];
+    // top.addEventListener('scroll', this.handleScroll);
+    // console.log('scrolling Injected');
+  },
+  beforeDestroy() {
+    // document.getElementsByClassName('body').removeEventListener('scroll', this.handleScroll);
+    // console.log('scrolling Destroyed');
+  },
 }
 </script>
 

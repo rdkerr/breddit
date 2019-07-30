@@ -73,8 +73,6 @@ export default {
       this.$emit('clicked');
     },
     toggle: function(type, value, index) {
-      console.log(type, value, index);
-
       if (type === this.keys[1]) {
         this.feed[this.keys[1]].splice(index,1);
       } else {
