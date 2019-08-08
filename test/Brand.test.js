@@ -12,6 +12,6 @@ describe('Brand', () => {
   })
 
   test('should render content correctly', () => {
-    expect(wrapper.find('p').text()).toEqual('breddit')
+    expect(wrapper.find('h1').text()).toEqual('breddit')
   })
 })
