@@ -1,10 +1,11 @@
-version: 2
-  jobs:
-    build:
-      docker:
-        - image: circleci/node:8.11.3
-
-      steps:
-        - checkout
-        - run: npm install
-        - run: npm test
+version: 2.0
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.11.3
+    steps:
+      - run:
+          name: The First Step
+          command: |
+            echo 'Hello World!'
+            echo 'This is the delivery pipeline'
