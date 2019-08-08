@@ -115,6 +115,7 @@ p {
 .post {
   background-color: #0079d3;
   color: white;
+  border: 0;
 }
 .community {
   background-color: white;
