@@ -1,5 +1,20 @@
+const {onUpdateTrigger} = require('../../knexfile');
+
+const ON_UPDATE_TIMESTAMP_FUNCTION = `
+  CREATE OR REPLACE FUNCTION on_update_timestamp()
+  RETURNS trigger AS $$
+  BEGIN
+    NEW.updated_at = now();
+    RETURN NEW;
+  END;
+$$ language 'plpgsql';
+`;
+
+const DROP_ON_UPDATE_TIMESTAMP_FUNCTION = `DROP FUNCTION on_update_timestamp`;
+
 exports.up = function(knex, Promise) {
   return Promise.all([
+    knex.raw(ON_UPDATE_TIMESTAMP_FUNCTION),
     knex.schema.createTable('users', (table) => {
       table.increments('id').primary();
       table.string('user_name').unique();
@@ -12,7 +27,6 @@ exports.up = function(knex, Promise) {
       table.string('color');
       table.string('description').defaultTo('');
       table.timestamp('created_at').defaultTo(knex.fn.now());
-      table.timestamp('updated_at').defaultTo(knex.fn.now());
       table.json('rules');
       table.integer('baker_id').unsigned()
           .references('users.id').onDelete('CASCADE');
@@ -36,7 +50,7 @@ exports.up = function(knex, Promise) {
           .references('users.id').onDelete('CASCADE');
       table.integer('bakery_id').unsigned()
           .references('bakeries.id').onDelete('CASCADE');
-    }),
+    }).then(() => knex.raw(onUpdateTrigger('posts'))),
     knex.schema.createTable('post_votes', (table) => {
       table.increments('id').primary();
       table.integer('value').notNullable();
@@ -71,7 +85,7 @@ exports.up = function(knex, Promise) {
           .references('users.id').onDelete('CASCADE');
       table.integer('post_id').unsigned()
           .references('posts.id').onDelete('CASCADE');
-    }),
+    }).then(() => knex.raw(onUpdateTrigger('messages'))),
     knex.schema.createTable('message_votes', (table) => {
       table.increments('id').primary();
       table.integer('value').notNullable();
@@ -85,14 +99,15 @@ exports.up = function(knex, Promise) {
 
 exports.down = function(knex, Promise) {
   return Promise.all([
-    knex.schema.dropTable('messages_votes'),
-    knex.schema.dropTable('messages'),
-    knex.schema.dropTable('hidden_posts'),
-    knex.schema.dropTable('saved_posts'),
-    knex.schema.dropTable('post_votes'),
-    knex.schema.dropTable('posts'),
-    knex.schema.dropTable('customers'),
-    knex.schema.dropTable('bakeries'),
-    knex.schema.dropTable('users'),
+    knex.raw(DROP_ON_UPDATE_TIMESTAMP_FUNCTION),
+    knex.schema.dropTable('messages_votes')
+        .dropTable('messages')
+        .dropTable('hidden_posts')
+        .dropTable('saved_posts')
+        .dropTable('post_votes')
+        .dropTable('posts')
+        .dropTable('customers')
+        .dropTable('bakeries')
+        .dropTable('users'),
   ]);
 };
