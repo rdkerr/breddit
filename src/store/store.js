@@ -3,7 +3,7 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable semi */
 /* eslint-disable linebreak-style */
-import Vue from 'Vue'
+import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)

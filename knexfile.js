@@ -1,44 +1,50 @@
-// Update with your config settings.
+const user = require('./db/config.js').user;
+const password = require('./db/config.js').password;
 
 module.exports = {
-
+  test: {
+    client: 'pg',
+    connection: {
+      host: '127.0.0.1',
+      user: user,
+      password: password,
+      database: 'breddit_test',
+    },
+    migrations: {
+      directory: __dirname + '/db/migrations',
+    },
+    seeds: {
+      directory: __dirname + '/db/seeds',
+    },
+  },
   development: {
-    client: 'sqlite3',
+    client: 'pg',
     connection: {
-      filename: './dev.sqlite3'
-    }
-  },
-
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
+      host: '127.0.0.1',
+      user,
+      password,
+      database: 'breddit',
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      directory: __dirname + '/db/migrations',
+    },
+    seeds: {
+      directory: __dirname + '/db/seeds',
+    },
   },
-
   production: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
+      host: '0.0.0.0',
+      user,
+      password,
+      database: 'breddit',
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
-  }
-
+      directory: __dirname + '/db/migrations',
+    },
+    seeds: {
+      directory: __dirname + '/db/seeds',
+    },
+  },
 };
