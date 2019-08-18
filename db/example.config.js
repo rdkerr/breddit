@@ -1,7 +1,7 @@
 const user = '';
 const password = '';
 
-export default {
+module.exports = {
   user,
   password,
 };
