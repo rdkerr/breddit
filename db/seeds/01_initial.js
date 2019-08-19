@@ -1,14 +1,15 @@
+/* eslint-disable max-len */
 
 const faker = require('faker');
 const fs = require('fs');
 const ObjectsToCsv = require('objects-to-csv');
-const bakeries = require('./bakeries');
-const icons = require('./icons');
+const bakeries = require('../bakeries');
+const icons = require('../icons');
 
 const createUser = () => ({
-  user_name: faker.random.word() + faker.random.number({
+  name: faker.random.word() + faker.random.number({
     'min': 1,
-    'max': 1000,
+    'max': 10000,
   }),
   night_mode: faker.random.boolean(),
 });
@@ -19,16 +20,15 @@ const createRules = () => {
     rules[faker.lorem.sentence()] = faker.lorem.sentences(faker.random.number({'min': 1, 'max': 3}));
   }
   return rules;
-}
+};
 
-// 915 initial bakeries
-const createBakery = (index) => ({
+const createBakery = (index, maxUserId) => ({
   name: bakeries[index],
-  icon: icons[index % 786],
+  icon: icons[index % icons.length],
   color: faker.internet.color(),
   description: faker.lorem.sentences(faker.random.number({'min': 1, 'max': 3})),
   rules: createRules(),
-  baker_id: faker.random.number({'min': 1, 'max': 1000}),
+  baker_id: faker.random.number({'min': 1, 'max': maxUserId}),
 });
 
 const shuffle = (array) => {
@@ -38,9 +38,9 @@ const shuffle = (array) => {
   }
 };
 
-const createCustomers = (offset) => {
+const createCustomers = (batchSize) => {
   const customers = [];
-  for (let i = 1; i <= 1000; i++) {
+  for (let i = 1; i <= batchSize; i++) {
     const limit = faker.random.number({'min': 5, 'max': 15});
     const favs = faker.random.number({'min': 0, 'max': 5});
     const bakeries = [];
@@ -51,7 +51,7 @@ const createCustomers = (offset) => {
     for (let j = 0; j < limit; j++) {
       const temp = {
         favorite: favs > j,
-        user_id: i + (offset * 1000),
+        user_id: i,
         bakery_id: bakeries[j],
       };
       customers.push(temp);
@@ -60,28 +60,29 @@ const createCustomers = (offset) => {
   return customers;
 };
 
-const createPosts = () => {
+const createPosts = (batchSize, maxUserId) => {
   const posts = [];
-  for (let i = 1; i <= 1000; i++) {
+  for (let i = 1; i <= batchSize; i++) {
     const isImage = faker.random.boolean();
     const content = isImage ? 'src/assets/bread/bread (' + faker.random.number({'min': 500, 'max': 999}) + ').jpg': faker.lorem.paragraphs(faker.random.number({'min': 1, 'max': 2}));
     const temp = {
       is_image: isImage,
       title: faker.lorem.sentence(),
       content,
-      user_id: faker.random.number({'min': 1, 'max': 1000}),
-      bakery_id: faker.random.number({'min': 1, 'max': 915}),
+      user_id: faker.random.number({'min': 1, 'max': maxUserId}),
+      bakery_id: faker.random.number({'min': 1, 'max': bakeries.length}),
     };
     posts.push(temp);
   }
   return posts;
 };
 
+// Shuffle
 const createPostVotes = () => {
   const votes = [];
-  for (let i = 1; i <= 2; i++) {
+  for (let i = 1; i <= 1000; i++) {
     let user = faker.random.number({'min': 1, 'max': 1000});
-    while (user < 1000) {
+    while (user <= 1000) {
       const up = faker.random.number({'min': 1, 'max': 2});
       const temp = {
         value: up === 1 ? 1 : -1,
@@ -89,36 +90,99 @@ const createPostVotes = () => {
         user_id: user,
       };
       votes.push(temp);
-      user = faker.random.number({'min': user, 'max': 1050});
+      user = faker.random.number({'min': user, 'max': 1100});
     }
   }
   return votes;
 };
 
-// for (let i = 0; i < 10; i++) {
-//   console.log(createUser());
-// }
-// const deleteCsv = (name) => {
-//   fs.unlink(`./db/seeds/${name}.csv`, (err) => {
-//     if (err) console.log('ERROR: ', err);
-//   });
-// };
-// const tempUsers = [];
-// for (let i = 0; i < 100000; i++) {
-//   tempUsers.push(createUser());
-// }
-// fs.createWriteStream('./db/seeds/users.csv');
-// new ObjectsToCsv(tempUsers).toDisk('./db/seeds/users.csv')
+const createReplies = (postId, messageId, replyChance, receiverId) => {
+  const replies = [];
+  let randomChance = faker.random.number({'min': 1, 'max': 100});
+  while (randomChance < replyChance) {
+    const senderId = faker.random.number({'min': 1, 'max': 1000});
+    const temp = {
+      message_id: messageId,
+      content: faker.lorem.sentences(faker.random.number({'min': 1, 'max': 4})),
+      sender_id: senderId,
+      receiver_id: receiverId,
+      post_id: postId,
+    };
+    replies.push(temp);
+    replies.push(...createReplies(postId, replies.length, replyChance - 5, senderId));
+    randomChance = faker.random.number({'min': 1, 'max': 100});
+  }
+  return replies;
+};
 
-exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
-    });
+const createMessages = (totalMessages) => {
+  const messages = [];
+  const messageChance = 80;
+  for (let i = 1; i <= 10; i++) {
+    let randomChance = faker.random.number({'min': 1, 'max': 100});
+    while (randomChance < messageChance) {
+      const senderId = faker.random.number({'min': 1, 'max': 1000});
+      const temp = {
+        message_id: null,
+        content: faker.lorem.sentences(faker.random.number({'min': 1, 'max': 4})),
+        sender_id: senderId,
+        receiver_id: null,
+        post_id: i,
+      };
+      messages.push(temp);
+      messages.push(...createReplies(i, messages.length, 70, senderId));
+      randomChance = faker.random.number({'min': 1, 'max': 100});
+    }
+  }
+  return messages;
+};
+
+const log = (name, start, end) => {
+  const min = (start - end) * -1.666e-5;
+  const sec = Math.floor((min - Math.floor(min)) * 60);
+  console.log(`Total Time to seed ${name}: ${Math.floor(min)} minutes ${sec} seconds`);
+}
+
+exports.seed = async function(knex, Promise) {
+  const start = Date.now();
+  let tempUsers = [];
+  const batchCount = 1;
+  const batchSize = 1000;
+  const total = batchCount * batchSize;
+  // Users
+  for (let i = 0; i < batchCount; i++) {
+    tempUsers = [];
+    for (let j = 0; j < batchSize; j++) {
+      tempUsers.push(createUser());
+    }
+    await knex('users').insert(tempUsers);
+  }
+  log('USERS', start, Date.now());
+
+  // Bakeries
+  const tempBakeries = [];
+  for (let i = 0; i < bakeries.length; i++) {
+    tempBakeries.push(createBakery(i, total));
+  }
+  await knex('bakeries').insert(tempBakeries);
+  log('BAKERIES', start, Date.now());
+  new ObjectsToCsv(tempBakeries).toDisk('./db/seeds/bakes.csv');
+
+  // Customers
+  let tempCustomers = [];
+  for (let i = 0; i < batchCount; i++) {
+    tempCustomers = createCustomers(batchSize);
+    shuffle(tempCustomers);
+    await knex('customers').insert(tempCustomers);
+  }
+  log('CUSTOMERS', start, Date.now());
+
+  // Posts
+  let tempPosts = [];
+  for (let i = 0; i < batchCount; i++) {
+    tempPosts = createPosts(batchSize, total);
+  }
+  new ObjectsToCsv(tempPosts).toDisk('./db/seeds/posts.csv');
+  await knex('posts').insert(tempPosts);
+  log('POSTS', start, Date.now());
 };
