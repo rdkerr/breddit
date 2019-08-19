@@ -17,15 +17,16 @@ exports.up = function(knex, Promise) {
     knex.raw(ON_UPDATE_TIMESTAMP_FUNCTION),
     knex.schema.createTable('users', (table) => {
       table.increments('id').primary();
-      table.string('user_name').unique();
+      table.string('name').unique();
       table.boolean('night_mode').defaultTo(false);
       table.date('joined').defaultTo(knex.fn.now());
     }),
     knex.schema.createTable('bakeries', (table) => {
       table.increments('id').primary();
-      table.string('icon');
+      table.string('name').unique();
+      table.string('icon').notNullable();
       table.string('color');
-      table.string('description').defaultTo('');
+      table.string('description').notNullable();
       table.timestamp('created_at').defaultTo(knex.fn.now());
       table.json('rules');
       table.integer('baker_id').unsigned()
