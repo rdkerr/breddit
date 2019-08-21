@@ -1,8 +1,6 @@
 /* eslint-disable max-len */
 
 const faker = require('faker');
-const fs = require('fs');
-const ObjectsToCsv = require('objects-to-csv');
 const bakeries = require('../bakeries');
 const icons = require('../icons');
 
@@ -158,7 +156,7 @@ const log = (name, start, end) => {
   const min = (start - end) * -1.666e-5;
   const sec = Math.floor((min - Math.floor(min)) * 60);
   console.log(`Total Time to seed ${name}: ${Math.floor(min)} minutes ${sec} seconds`);
-}
+};
 
 exports.seed = async function(knex, Promise) {
   const start = Date.now();
