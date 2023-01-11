@@ -11,7 +11,7 @@
     "test": "jest --updateSnapshot"
   },
   "dependencies": {
-    "knex": "^0.17.5",
+    "knex": "^2.4.0",
     "pg": "^7.11.0",
     "vue": "^2.5.11",
     "vue-clickaway2": "^2.3.1",
